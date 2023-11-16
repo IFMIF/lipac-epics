@@ -1,0 +1,35 @@
+# C.E.A. IRFU/SIS/LDII
+#
+# @(#) $Id: CONFIG 23 2013-03-13 15:38:34Z lussi $
+#
+# CONFIG
+#
+
+include $(TOP)/configure/RELEASE
+-include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH)
+-include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH).Common
+ifdef T_A
+-include $(TOP)/configure/RELEASE.Common.$(T_A)
+-include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH).$(T_A)
+endif
+
+CONFIG=$(EPICS_BASE)/configure
+include $(CONFIG)/CONFIG
+
+# Override for definition in base
+INSTALL_LOCATION = $(TOP)
+include $(TOP)/configure/CONFIG_SITE
+-include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH)
+-include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).Common
+
+ifdef T_A
+ -include $(TOP)/configure/CONFIG_SITE.Common.$(T_A)
+ -include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
+
+ -include $(TOP)/configure/O.$(T_A)/CONFIG_APP_INCLUDE
+endif
+
+# Install location for GUI files
+INSTALL_GUI = $(INSTALL_LOCATION)/gui
+# Names of installed items
+INSTALL_GUIS = $(GUIS:%= $(INSTALL_GUI)/%)

@@ -1,0 +1,11 @@
+# C.E.A. IRFU/SIS/LDII
+#
+# @(#) $Id: RULES_TOP,v 1.2 2010/10/27 12:09:15 cmsmgr Exp $
+#
+# RULES_TOP
+#
+
+include $(EPICS_BASE)/configure/RULES_TOP
+
+# uninstall rule for install directory <top>/gui
+UNINSTALL_DIRS += $(INSTALL_GUI)

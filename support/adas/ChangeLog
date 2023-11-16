@@ -1,0 +1,135 @@
+2013-03-13
+
+    - adasApp/src/devIcv150.c: added waveform record support
+    - adasApp/src/devAdas.dbd: added waveform record support
+    - docs/devIcv150.pdf: updated
+
+2013-03-08
+
+    - adasApp/src/doxygen.cfg: updated for RHEL6
+    - adasApp/src/devIcv150.c: doc updated
+
+Mon Jul 04 02:18:12 PM 2011 <ylussign@sispca139.generated>  adas version: 1.12 
+
+    - adasApp/src/devIcv150.c: changed max number of channels to 128
+                               lastChan & trigCnt changed to arrays
+
+Thu Feb 18 01:25:02 PM 2010 <ylussign@sispca139.generated>  adas version: 1.11 
+
+    - adasApp/src/Makefile: added flag -O0 (do not optimize)
+
+Fri Jan 29 10:52:39 AM 2010 <ylussign@sispca139.generated>  adas version: 1.10 
+
+    - adasApp/src/devIcv150.c: added function icv150OverSampling
+    - adasApp/src/devAdas.dbd: added function icv150OverSampling
+
+Thu Nov 26 06:08:25 PM 2009 <ylussign@sispca139.generated>  adas version: 1.9 
+
+    - docs: created
+    - adasApp/src/devIcv*.c: added comments for doxygen
+
+Tue Nov 24 11:17:55 AM 2009 <ylussign@sispca139.generated>  adas version: 1.8 
+
+    - adasApp/Makefile: replaced adl by gui
+                        added target clean for documentation
+    - adasApp/gui: replaces adl
+    - adasApp/src/doxygen.cfg: created
+    - adasApp/src/devIcv*.c: added include errlog.h and doxygen documentation
+    - adasApp/src/Makefile: added target doxygen
+
+Tue Dec 02 03:15:11 PM 2008 <ylussign@sispca139.generated>  adas version: 1.7 
+
+    - adasApp/src/Makefile: removed adas_LIBS
+    - adasApp/src/test196.c: increased DELAY
+
+Tue Dec 02 01:47:26 PM 2008 <ylussign@sispca139.generated>  adas version: 1.6 
+
+    - adasApp/src/Makefile: added test196.c
+    - adasApp/src/devIcv196.c: added delay after each write in Z8536 registers
+    - adasApp/src/test196.c: created
+
+Thu Jul 03 02:33:05 PM 2008 <ylussign@sigpcd144.generated>  adas version: 1.5 
+
+    - adasApp/src/Makefile: removed drvIcv714.c
+                            adas library built for vxWorks & RTEMS
+    - adasApp/src/devAdas.dbd: added variables & functions registration
+                               removed icv714 driver
+    - adasApp/src/icv150.h: changed icv150 functions type to void
+    - adasApp/src/devIcv150.c: changed icv150 functions type to void
+                               added icv150 functions registration for iocsh
+			       use Device Support Library devLib
+			       added RTEMS support
+    - adasApp/src/devIcv196.c: use Device Support Library devLib
+			       added RTEMS support
+    - adasApp/src/devIcv296.c: use Device Support Library devLib
+			       added RTEMS support
+			       replaced D32 by D16 access
+    - adasApp/src/devIcv714.c: merged device and driver support
+                               field DPVT used to mark bad records
+                               added configuration functions
+                               use Device Support Library devLib
+                               added RTEMS support
+    - adasApp/src/drvIcv714.c: removed
+    - adasApp/src/man/man1/*: created man pages
+    - iocBoot/iocAdas/src/Makefile: iocAdas built for vxWorks & RTEMS
+    - iocBoot/iocAdas/boot/st.cmd: added icv714 database
+    - adasApp/man/man1/: added man pages
+
+Fri Jun 20 04:10:56 PM 2008 <ylussign@sigpcd144.generated>  adas version: 1.4 
+
+    - iocBoot/iocAdas/boot/Makefile: changed ARCH
+
+Thu Feb 21 01:13:58 PM 2008 <ylussign@sigpcd144.generated>  adas version: 1.3 
+
+    - iocBoot/iocAdas/boot/Makefile: changed ARCH
+    - iocBoot/iocAdas/boot/st.cmd: load icv150 database
+    - iocBoot/iocAdas/boot/icv714.substitutions: created
+    - adasApp/db/icv714.template: created
+    - adasApp/src/Makefile: commented man pages section
+    - adasApp/man/man1/*: created man pages
+
+Fri Nov 09 09:04:43 AM 2007 <ylussign@sigpcd144.generated>  adas version: 1.2 
+
+    - adasApp/src/devIcv196.c: updated for 3.14
+                               merged with drvIcv196.c
+			       added support for records mbbiDirect/mbboDirect
+			       added support for records longin/longout
+			       fixed optimisation problem with Z8536
+    - adasApp/src/drvIcv196.c: removed
+    - adasApp/src/devIcv296.c: created
+    - adasApp/src/devAdas.dbd: removed drvIcv196
+                               added new icv196 record types
+			       added icv296
+    - adasApp/db/BI.template: created
+    - adasApp/db/BO.template: created
+    - adasApp/db/MBBI.template: created
+    - adasApp/db/MBBO.template: created
+    - adasApp/db/MBBIDIRECT.template: created
+    - adasApp/db/MBBODIRECT.template: created
+    - adasApp/db/icv196long.db: created
+    - adasApp/db/icv296long.db: created
+    - adasApp/adl/icv196long.adl: created
+    - adasApp/adl/icv296long.adl: created
+    - iocBoot/iocAdas/boot/st.cmd: added icv296
+    - iocBoot/iocAdas/boot/icv196.substitutions: created
+    - iocBoot/iocAdas/boot/icv196Errors.substitutions: created
+    - iocBoot/iocAdas/boot/icv296.substitutions: created
+
+Fri Nov 09 08:11:55 AM 2007 <ylussign@sigpcd144.generated>  adas version: 1.1 
+
+    - adasApp/src/icv150.h: created
+    - adasApp/src/devIcv150.c: updated for 3.14
+			       added 16bit ADC support
+			       ADC resolution configured by function call
+                               scan mode selectable by function call
+    - adasApp/src/devAdas.dbd: created
+    - adasApp/db/icv150.template: created
+    - iocBoot/iocAdas/boot/st.cmd: created
+    - iocBoot/iocAdas/boot/icv150.substitutions: created
+    - iocBoot/iocAdas/boot/icv150Errors.substitutions: created
+    
+Fri Nov 09 08:11:55 AM 2007 <ylussign@sigpcd144.generated>  adas version: 1.0 
+
+    - created
+    
+"@(#) $Id: ChangeLog 23 2013-03-13 15:38:34Z lussi $"

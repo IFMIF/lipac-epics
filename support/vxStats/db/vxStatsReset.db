@@ -1,0 +1,17 @@
+# C.E.A. IRFU/SIS/LDII
+#
+# @(#) $Id: vxStatsReset.db,v 1.2 2010/10/27 12:09:14 cmsmgr Exp $
+#
+# failsafe timer reset database 
+#
+# who       when      what
+# --------  --------  ----------------------------------------------
+# ylussign  25/10/10  created
+#
+
+	record(sub,"$(IOC):cpuReset") {
+	    field(SCAN,"1 second")
+	    field(INAM, "vxStatsResetSubInit")
+	    field(SNAM, "vxStatsResetSubProcess")
+	}
+	

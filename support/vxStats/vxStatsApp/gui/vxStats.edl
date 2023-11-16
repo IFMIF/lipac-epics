@@ -1,0 +1,561 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 766
+y 225
+w 350
+h 280
+font "helvetica-medium-r-12.0"
+ctlFont "helvetica-medium-r-12.0"
+btnFont "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 2
+textColor index 49
+ctlFgColor1 index 14
+ctlFgColor2 index 31
+ctlBgColor1 index 2
+ctlBgColor2 index 2
+topShadowColor index 1
+botShadowColor index 12
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y -1
+w 350
+h 40
+font "helvetica-bold-r-18.0"
+fontAlign "center"
+fgColor index 49
+bgColor index 64
+value {
+  "$(IOC)"
+}
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 257
+y 6
+w 78
+h 24
+fgColor index 49
+bgColor index 2
+topShadowColor index 1
+botShadowColor index 12
+label "EXIT"
+font "helvetica-bold-r-12.0"
+3d
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 41
+y 68
+w 291
+h 22
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 276
+y 74
+w 56
+h 14
+controlPv "$(IOC):cpuUsedPercent"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Bar)
+object activeBarClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 118
+y 68
+w 148
+h 22
+indicatorColor index 9
+indicatorAlarm
+fgColor index 14
+bgColor index 2
+indicatorPv "$(IOC):cpuUsedPercent"
+font "helvetica-bold-r-12.0"
+border
+limitsFromDb
+scaleFormat "FFloat"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 41
+y 74
+w 70
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "CPU Usage:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 17
+y 104
+w 315
+h 22
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 276
+y 110
+w 56
+h 14
+controlPv "$(IOC):memoryUsedPercent"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Bar)
+object activeBarClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 118
+y 104
+w 148
+h 22
+indicatorColor index 9
+indicatorAlarm
+fgColor index 49
+bgColor index 2
+indicatorPv "$(IOC):memoryUsedPercent"
+font "helvetica-bold-r-12.0"
+border
+limitsFromDb
+scaleFormat "FFloat"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 17
+y 110
+w 94
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "Memory Usage:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 50
+y 140
+w 282
+h 22
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 276
+y 146
+w 56
+h 14
+controlPv "$(IOC):fdUsedPercent"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Bar)
+object activeBarClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 118
+y 140
+w 148
+h 22
+indicatorColor index 9
+indicatorAlarm
+fgColor index 49
+bgColor index 2
+indicatorPv "$(IOC):fdUsedPercent"
+font "helvetica-bold-r-12.0"
+border
+limitsFromDb
+scaleFormat "FFloat"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 50
+y 146
+w 61
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "FD Usage:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 138
+y 183
+w 111
+h 14
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 209
+y 183
+w 40
+h 14
+controlPv "$(IOC):caClients"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 138
+y 183
+w 64
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "CA Clients:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 125
+y 207
+w 124
+h 14
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 209
+y 207
+w 40
+h 14
+controlPv "$(IOC):caChannels"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 125
+y 207
+w 77
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "CA Channels:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 87
+y 231
+w 162
+h 14
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 209
+y 231
+w 40
+h 14
+controlPv "$(IOC):caLinksTotal"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 87
+y 231
+w 115
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "Database CA Links:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 41
+y 255
+w 208
+h 14
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 5
+release 0
+x 209
+y 255
+w 40
+h 14
+controlPv "$(IOC):caLinksDiscon"
+font "helvetica-bold-r-12.0"
+fontAlign "right"
+fgColor index 49
+fgAlarm
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 31
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 41
+y 255
+w 161
+h 14
+font "helvetica-bold-r-12.0"
+fgColor index 49
+bgColor index 2
+useDisplayBg
+value {
+  "Disconnected DB CA Links:"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+

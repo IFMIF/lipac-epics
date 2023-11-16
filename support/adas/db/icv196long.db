@@ -1,0 +1,11 @@
+record(longin, ICV196:J1li) {
+  field(SCAN, "1 second")
+  field(TSEL, "#C0 S0 @")
+  field(DTYP, "ICV196")
+  field(INP, "#C0 S0 @")
+}
+
+record(longout, ICV196:J2lo) {
+  field(DTYP, "ICV196")
+  field(OUT, "#C0 S1 @")
+}
