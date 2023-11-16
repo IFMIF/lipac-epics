@@ -40,3 +40,12 @@
 [submodule "support/motor"]
 	path = support/motor
 	url = https://code.ifmif.org/mirror/epics-modules/motor.git
+[submodule "extensions/ca-gateway"]
+	path = extensions/ca-gateway
+	url = https://code.ifmif.org/mirror/epics-extensions/ca-gateway
+[submodule "extensions/ca-nameserver"]
+	path = extensions/ca-nameserver
+	url = https://code.ifmif.org/mirror/epics-extensions/ca-nameserver
+[submodule "support/pcas"]
+	path = support/pcas
+	url = https://code.ifmif.org/mirror/epics-modules/pcas.git

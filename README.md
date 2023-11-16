@@ -54,6 +54,8 @@ To run a full cloning and compilation:
     make -j4
     cd ${EPICS_ROOT}/support
     make -j4 all
+    cd ${EPICS_ROOT}/extensions
+    make -j4
 
 ## Future work
 

@@ -19,12 +19,13 @@ base:
 adas: base
 autosave: base
 asyn: base calc ipac seq sscan
-busy: base asyn autosave busy
+busy: base asyn autosave
 calc: base sscan seq
 ipac: base
 lua: base asyn
 modbus: base asyn
 motor: base asyn seq busy ipac modbus lua #MX
+pcas: base
 s7plc: base seq
 seq: base
 sscan: base seq
@@ -37,7 +38,7 @@ symb: base
 
 TOPTARGETS := all clean
 
-SUBDIRS := asyn autosave busy calc ipac lua modbus motor s7plc seq sscan StreamDevice symb
+SUBDIRS := $(wildcard */.)
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

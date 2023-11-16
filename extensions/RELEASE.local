@@ -1,0 +1,6 @@
+# Location of EPICS base and support modules
+EPICS_BASE=/home/epicsmgr/epics-7.0/base
+SUPPORT=/home/epicsmgr/epics-7.0/support
+
+# PCAS
+PCAS=$(SUPPORT)/pcas
