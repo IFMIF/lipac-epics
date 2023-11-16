@@ -1,0 +1,10 @@
+# Ignore compilation artifacts to avoid having them accidentally committed
+/bin/
+/db/
+/dbd/
+/lib/
+
+envPaths
+html/
+man/
+O.*/

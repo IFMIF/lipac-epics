@@ -1,0 +1,42 @@
+[submodule "base"]
+	path = base
+	url = https://code.ifmif.org/mirror/epics-base/epics-base.git
+[submodule "support/asyn"]
+	path = support/asyn
+	url = https://code.ifmif.org/mirror/epics-modules/asyn.git
+[submodule "support/autosave"]
+	path = support/autosave
+	url = https://code.ifmif.org/mirror/epics-modules/autosave.git
+[submodule "support/busy"]
+	path = support/busy
+	url = https://code.ifmif.org/mirror/epics-modules/busy.git
+[submodule "support/calc"]
+	path = support/calc
+	url = https://code.ifmif.org/mirror/epics-modules/calc.git
+[submodule "support/ipac"]
+	path = support/ipac
+	url = https://code.ifmif.org/mirror/epics-modules/ipac.git
+[submodule "support/lua"]
+	path = support/lua
+	url = https://code.ifmif.org/mirror/epics-modules/lua.git
+[submodule "support/modbus"]
+	path = support/modbus
+	url = https://code.ifmif.org/mirror/epics-modules/modbus.git
+[submodule "support/sscan"]
+	path = support/sscan
+	url = https://code.ifmif.org/mirror/epics-modules/sscan.git
+[submodule "support/symb"]
+	path = support/symb
+	url = https://code.ifmif.org/mirror/epics-modules/symb.git
+[submodule "support/StreamDevice"]
+	path = support/StreamDevice
+	url = https://code.ifmif.org/mirror/epics-modules/StreamDevice.git
+[submodule "support/s7plc"]
+	path = support/s7plc
+	url = https://code.ifmif.org/mirror/epics-modules/s7plc.git
+[submodule "support/seq"]
+	path = support/seq
+	url = https://code.ifmif.org/mirror/epics-modules/seq.git
+[submodule "support/motor"]
+	path = support/motor
+	url = https://code.ifmif.org/mirror/epics-modules/motor.git
