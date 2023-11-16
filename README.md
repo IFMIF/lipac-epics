@@ -57,6 +57,13 @@ To run a full cloning and compilation:
     cd ${EPICS_ROOT}/extensions
     make -j4
 
+## Obsolete modules
+
+The following support modules that were used in the old EPICS 3.14 distribution used in LIPAc are missing, as they are not compatible with EPICS 7.0 and they have been replaced by newer modules:
+
+- genSub -> asub
+- stream -> StreamDevice
+
 ## Future work
 
 We will add additional support modules and extensions as needed. 
