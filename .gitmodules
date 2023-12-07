@@ -1,51 +1,51 @@
 [submodule "base"]
 	path = base
-	url = https://code.ifmif.org/mirror/epics-base/epics-base.git
+	url = https://github.com/epics-base/epics-base.git
 [submodule "support/asyn"]
 	path = support/asyn
-	url = https://code.ifmif.org/mirror/epics-modules/asyn.git
+	url = https://github.com/epics-modules/asyn.git
 [submodule "support/autosave"]
 	path = support/autosave
-	url = https://code.ifmif.org/mirror/epics-modules/autosave.git
+	url = https://github.com/epics-modules/autosave.git
 [submodule "support/busy"]
 	path = support/busy
-	url = https://code.ifmif.org/mirror/epics-modules/busy.git
+	url = https://github.com/epics-modules/busy.git
 [submodule "support/calc"]
 	path = support/calc
-	url = https://code.ifmif.org/mirror/epics-modules/calc.git
+	url = https://github.com/epics-modules/calc.git
 [submodule "support/ipac"]
 	path = support/ipac
-	url = https://code.ifmif.org/mirror/epics-modules/ipac.git
+	url = https://github.com/epics-modules/ipac.git
 [submodule "support/lua"]
 	path = support/lua
-	url = https://code.ifmif.org/mirror/epics-modules/lua.git
+	url = https://github.com/epics-modules/lua.git
 [submodule "support/modbus"]
 	path = support/modbus
-	url = https://code.ifmif.org/mirror/epics-modules/modbus.git
+	url = https://github.com/epics-modules/modbus.git
 [submodule "support/sscan"]
 	path = support/sscan
-	url = https://code.ifmif.org/mirror/epics-modules/sscan.git
+	url = https://github.com/epics-modules/sscan.git
 [submodule "support/symb"]
 	path = support/symb
-	url = https://code.ifmif.org/mirror/epics-modules/symb.git
+	url = https://github.com/epics-modules/symb.git
 [submodule "support/StreamDevice"]
 	path = support/StreamDevice
-	url = https://code.ifmif.org/mirror/epics-modules/StreamDevice.git
+	url = https://github.com/paulscherrerinstitute/StreamDevice.git
 [submodule "support/s7plc"]
 	path = support/s7plc
-	url = https://code.ifmif.org/mirror/epics-modules/s7plc.git
+	url = https://github.com/paulscherrerinstitute/s7plc.git
 [submodule "support/seq"]
 	path = support/seq
-	url = https://code.ifmif.org/mirror/epics-modules/seq.git
+	url = https://github.com/mdavidsaver/sequencer-mirror
 [submodule "support/motor"]
 	path = support/motor
-	url = https://code.ifmif.org/mirror/epics-modules/motor.git
+	url = https://github.com/epics-modules/motor.git
 [submodule "extensions/ca-gateway"]
 	path = extensions/ca-gateway
-	url = https://code.ifmif.org/mirror/epics-extensions/ca-gateway
+	url = https://github.com/epics-extensions/ca-gateway.git
 [submodule "extensions/ca-nameserver"]
 	path = extensions/ca-nameserver
-	url = https://code.ifmif.org/mirror/epics-extensions/ca-nameserver
+	url = https://github.com/epics-extensions/ca-nameserver.git
 [submodule "support/pcas"]
 	path = support/pcas
-	url = https://code.ifmif.org/mirror/epics-modules/pcas.git
+	url = https://github.com/epics-modules/pcas.git
