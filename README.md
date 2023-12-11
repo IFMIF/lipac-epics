@@ -17,26 +17,10 @@ This repository includes most folders as submodules, so when cloning it please m
 
 Forewarning: These instructions have been tested under AlmaLinux 9 and confirmed to work. They will probably work under other Linux distributions, but we can't confirm it. They won't probably work under CentOS 7, as it is very old and missing some required dependencies.
 
-Before you can compile the code, you need to install all the required dependencies. In a moder RHEL-based system, run the following command:
+Before the code can be compiled, it is necessary to install all the required dependencies. The specific name of the packages depend on the Linux distro being used:
 
-    dnf install \
-	git \
-	make \
-	gcc \
-	gcc-c++ \
-	readline \
-	readline-devel \
-	perl-lib \
-	perl-File-Find \
-	perl-FindBin \
-	re2c \
-	rpcgen \
-	libtirpc \
-	libtirpc-devel \
-	perl-ExtUtils-Command \
-	pcre \
-	pcre-devel \
-	doxygen
+- For RHEL-based distros (RHEL, CentOS, Rocky, AlmaLinux, etc.), please run [`install_dependencies_rhel.sh`](install_dependencies_rhel.sh)
+- For Debian-based distros (Debian, Ubuntu, Mint, etc.), please run [`install_dependencies_debian.sh`](install_dependencies_debian.sh)
 
 Compiling EPICS requires, at a minimum, configuring the `$EPICS_BASE` and `$EPICS_HOST_ARCH` environment variables. According to the LIPAc CSP, EPICS is stored under `/home/epicsmgr`, so we assume the following configuration:
 

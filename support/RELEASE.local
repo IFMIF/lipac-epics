@@ -1,6 +1,8 @@
 TIRPC=YES
+
 #PCRE_INCLUDE=/usr/include
 #PCRE_LIB=/usr/lib64
+#PCRE_LIB=/usr/lib/x86_64-linux-gnu/
 
 # Location of EPICS base and support modules
 EPICS_BASE=/home/epicsmgr/epics-7.0/base
