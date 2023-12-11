@@ -38,7 +38,7 @@ symb: base
 
 TOPTARGETS := all clean
 
-SUBDIRS := $(wildcard */.)
+SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas s7plc seq sscan StreamDevice symb
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
