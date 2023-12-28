@@ -11,16 +11,16 @@ This repository is intended to be the official EPICS 7.0 distribution used in th
 
 This repository includes most folders as submodules, so when cloning it please make sure to do a recursive clone:
 
-    git clone --recursive https://code.ifmif.org/lipac/lipac-epics-7.0
+    git clone --recursive https://code.ifmif.org/lipac/epics-7.0
 
 ## Compilation instructions
 
-Forewarning: These instructions have been tested under AlmaLinux 9 and confirmed to work. They will probably work under other Linux distributions, but we can't confirm it. They won't probably work under CentOS 7, as it is very old and missing some required dependencies.
+Forewarning: These instructions have been tested under AlmaLinux 9 and Debian 12 and confirmed to work. They will probably work under other Linux distributions, but we can't confirm it. They won't probably work under CentOS 7, as it is very old and missing some required dependencies.
 
 Before the code can be compiled, it is necessary to install all the required dependencies. The specific name of the packages depend on the Linux distro being used:
 
-- For RHEL-based distros (RHEL, CentOS, Rocky, AlmaLinux, etc.), please run [`install_dependencies_rhel.sh`](install_dependencies_rhel.sh)
-- For Debian-based distros (Debian, Ubuntu, Mint, etc.), please run [`install_dependencies_debian.sh`](install_dependencies_debian.sh)
+- For AlmaLinux 9 please run [`install_dependencies_al9.sh`](install_dependencies_al9.sh)
+- For Debian 12 please run [`install_dependencies_debian12.sh`](install_dependencies_debian12.sh)
 
 Compiling EPICS requires, at a minimum, configuring the `$EPICS_BASE` and `$EPICS_HOST_ARCH` environment variables. According to the LIPAc CSP, EPICS is stored under `/home/epicsmgr`, so we assume the following configuration:
 
@@ -32,14 +32,15 @@ The file [`set_epics_environment.sh`](set_epics_environment.sh) contains an exam
 
 To run a full cloning and compilation:
 
-    git clone --recursive https://code.ifmif.org/lipac/lipac-epics-7.0 ${EPICS_ROOT}
+    git clone --recursive https://code.ifmif.org/lipac/epics-7.0 ${EPICS_ROOT}
     source ${EPICS_ROOT}/set_epics_environment.sh
-    cd ${EPICS_ROOT}/base
-    make -j4
-    cd ${EPICS_ROOT}/support
-    make -j4 all
-    cd ${EPICS_ROOT}/extensions
-    make -j4
+    cd ${EPICS_ROOT}
+    make all -j4
+
+To clean the project completely:
+
+    cd ${EPICS_ROOT}
+    make distclean
 
 ## Obsolete modules
 

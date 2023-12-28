@@ -1,7 +1,15 @@
-# Makefile to compile all the EPICS extensions
+# Makefile to compile the whole LIPAc EPICS-7.0 distribution
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Date: 2023-11-17
+# Date: 2023-12-18
+
+# ---------------------------------------------------------
+# Build base first, then support, then extensions
+# ---------------------------------------------------------
+
+base:
+support: base
+extensions: base support
 
 # ---------------------------------------------------------
 # Build instructions
@@ -9,7 +17,7 @@
 
 TOPTARGETS := all distclean
 
-SUBDIRS := $(wildcard */.)
+SUBDIRS := base support extensions
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

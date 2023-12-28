@@ -29,14 +29,14 @@ pcas: base
 s7plc: base seq
 seq: base
 sscan: base seq
-StreamDevice: base asyn calc #pcre
+StreamDevice: base asyn calc
 symb: base
 
 # ---------------------------------------------------------
 # Build instructions
 # ---------------------------------------------------------
 
-TOPTARGETS := all clean
+TOPTARGETS := all distclean
 
 SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas s7plc seq sscan StreamDevice symb
 

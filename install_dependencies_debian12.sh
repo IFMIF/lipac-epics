@@ -1,14 +1,23 @@
 #!/bin/bash
 
+# Abort the whole script if any step fails
+set -eo pipefail
+
+# Ensure that we are root
+if [ "$EUID" -ne 0 ]; then
+        echo "Please run as root"
+        exit
+fi
+
 # Basic compiler stuff
-sudo apt -y install \
+apt -y install \
 	gcc \
 	g++ \
 	git \
 	make
 
 # Libraries
-sudo apt -y install \
+apt -y install \
         libreadline-dev \
         libtirpc-dev \
         libpcre2-dev \
@@ -16,7 +25,7 @@ sudo apt -y install \
 	perl-modules
 
 # Additional required tools
-sudo apt -y install \
+apt -y install \
         re2c \
 	rpcsvc-proto \
         doxygen
