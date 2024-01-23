@@ -29,6 +29,8 @@ dnf -y install \
 	pcre-devel \
 	libtirpc \
 	libtirpc-devel \
+	libusbx \
+	libusbx-devel \
 	perl-lib \
 	perl-File-Find \
 	perl-FindBin \
