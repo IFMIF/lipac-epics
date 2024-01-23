@@ -22,6 +22,8 @@ apt -y install \
         libtirpc-dev \
         libpcre2-dev \
 	libpcre3-dev \
+	libusb-1.0-0 \
+	libusb-1.0-0-dev \
 	perl-modules
 
 # Additional required tools
