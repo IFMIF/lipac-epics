@@ -1,7 +1,7 @@
 # Makefile to compile all the EPICS extensions
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Date: 2023-11-17
+# Last update: 2024-03-26
 
 # ---------------------------------------------------------
 # Build instructions
@@ -13,6 +13,12 @@ SUBDIRS := $(wildcard */.)
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
-	$(MAKE) -C $@ $(MAKECMDGOALS)
+	@echo "\033[31;1m"
+	@echo "--------------------------------------------------------------------------------"
+	@echo "Building extensions/$@"
+	@echo "--------------------------------------------------------------------------------"
+	@echo "\033[0m"
+
+	$(MAKE) -C $@ $(MAKECMDGOALS) INSTALL_LOCATION=$(EPICS_TARGET)/extensions/$@
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)

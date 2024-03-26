@@ -1,12 +1,9 @@
+# Transport-independent RPC
 TIRPC=YES
 
 # Use the system-provided PCRE library
 PCRE=
 PCRE_INCLUDE=/usr/include
-
-# Location of EPICS base and support modules
-EPICS_BASE=/home/epicsmgr/epics-7.0/base
-SUPPORT=/home/epicsmgr/epics-7.0/support
 
 # ASYN is needed to compile asyn device support
 ASYN=$(SUPPORT)/asyn
@@ -50,3 +47,6 @@ CALC=$(SUPPORT)/calc
 # If CALC was built with SSCAN support then SSCAN must be defined for testEpicsApp
 # It can be obtained here: https://github.com/epics-modules/sscan
 SSCAN=$(SUPPORT)/sscan
+
+# PCAS
+PCAS=$(SUPPORT)/pcas

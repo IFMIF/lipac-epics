@@ -2,16 +2,16 @@
 
 ## Introduction
 
-This repository is intended to be the official EPICS 7.0 distribution used in the LIPAc project. It currently includes the EPICS base repository, and a collection of support modules and extensions. Whenever possible, all the repositories are mirrored from the official sources, and stored under https://code.ifmif.org/mirror/
+This repository is intended to be the official EPICS 7.0 distribution used in the LIPAc project. It currently includes the EPICS base repository, and a collection of support modules and extensions. The dependencies are included as submodules, so when cloning it please make sure to do a recursive clone:
+
+    git clone --recursive https://code.ifmif.org/lipac/epics-7.0
+
+After cloning, you should have the following folder structure:
 
     ./
     ├-- base       -> EPICS 7.0 itself
     ├-- support    -> EPICS support modules
     └-- extensions -> EPICS extensions
-
-This repository includes most folders as submodules, so when cloning it please make sure to do a recursive clone:
-
-    git clone --recursive https://code.ifmif.org/lipac/epics-7.0
 
 ## Compilation instructions
 
@@ -22,25 +22,26 @@ Before the code can be compiled, it is necessary to install all the required dep
 - For AlmaLinux 9 please run [`install_dependencies_al9.sh`](install_dependencies_al9.sh)
 - For Debian 12 please run [`install_dependencies_debian12.sh`](install_dependencies_debian12.sh)
 
-Compiling EPICS requires, at a minimum, configuring the `$EPICS_BASE` and `$EPICS_HOST_ARCH` environment variables. According to the LIPAc CSP, EPICS is stored under `/home/epicsmgr`, so we assume the following configuration:
+The EPICS build process is quite complicated:
 
-    export EPICS_ROOT=/home/epicsmgr/epics-7.0
-    export EPICS_BASE=/home/epicsmgr/epics-7.0/base
-    export EPICS_HOST_ARCH=linux-x86_64
+- EPICS base itself is easy to build, but the support modules and the extensions require providing a hardcoded file with the location of 'base' and the other support modules. Futhermore, there is no dependency resolution for the support modules.
+- The EPICS build process doesn't allow for clean out-of-source builds. Instead, all the compilation artifacts are generated alongside the code, and the relevant artifacts are copied to the install location. 
 
-The file [`set_epics_environment.sh`](set_epics_environment.sh) contains an example.
+To solve these problems, we have written our own Makefile, which provides two goals and one variable:
 
-To run a full cloning and compilation:
+- build: compile EPICS base and all the support modules and extensions.
+- clean: delete all the intermediate files and compilation artifacts.
+- EPICS_TARGET: target directory where the resulting EPICS distribution will be installed. If not provided, it defaults to ./target
 
-    git clone --recursive https://code.ifmif.org/lipac/epics-7.0 ${EPICS_ROOT}
-    source ${EPICS_ROOT}/set_epics_environment.sh
-    cd ${EPICS_ROOT}
-    make all -j4
+To build the EPICS distribution, please run:
 
-To clean the project completely:
+    make build EPICS_TARGET=${target_dir}
 
-    cd ${EPICS_ROOT}
-    make distclean
+To clean the project completely, please run:
+
+    make clean EPICS_TARGET=${target_dir}
+
+Please note that this command will also delete the target directory, so please back it up first if you want to keep it!
 
 ## Obsolete modules
 

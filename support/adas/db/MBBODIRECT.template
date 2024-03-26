@@ -1,0 +1,5 @@
+record(mbboDirect, "$(DV):C$(C)S$(S)mbbod") {
+  field(DTYP, "$(DV)")
+  field(OUT, "#C$(C) S$(S) @")
+  field(NOBT, "$(NB)")
+}
