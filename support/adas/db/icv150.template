@@ -1,0 +1,18 @@
+record(ai, "ICV150:C$(C)S$(S)ai") {
+  field(SCAN, "$(SC)")
+  field(LINR, "LINEAR")
+  field(DTYP, "ICV150")
+  field(INP,  "#C$(C) S$(S) @")
+  field(PREC, "2")
+  field(EGUF, "$(H)")
+  field(EGUL, "$(L)")
+  field(EGU,  "V")
+  field(HOPR, "$(H)")
+  field(LOPR, "$(L)")
+  field(EVNT, "$(E)")
+}
+
+record(ao, "ICV150:C$(C)S$(S)ao") {
+  field(DTYP, "ICV150")
+  field(OUT, "#C$(C) S$(S) @")
+}

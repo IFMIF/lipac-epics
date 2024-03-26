@@ -1,0 +1,13 @@
+record(ao, "ICV714:C$(C)S$(S)ao") {
+  field(LINR, "LINEAR")
+  field(DTYP, "ICV714")
+  field(OUT,  "#C$(C) S$(S) @")
+  field(PREC, "2")
+  field(EGUF, "$(H)")
+  field(EGUL, "$(L)")
+  field(EGU,  "V")
+  field(DRVH, "$(H)")
+  field(DRVL, "$(L)")
+  field(HOPR, "$(H)")
+  field(LOPR, "$(L)")
+}

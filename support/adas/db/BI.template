@@ -1,0 +1,6 @@
+record(bi, "$(DV):C$(C)S$(S)bi") {
+  field(DTYP, "$(DV)")
+  field(INP, "#C$(C) S$(S) @$(P)")
+  field(SCAN, "$(SC)")
+  field(EVNT, "$(EV)")
+}

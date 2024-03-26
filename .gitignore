@@ -3,8 +3,13 @@
 /db/
 /dbd/
 /lib/
+/target/
 
 envPaths
 html/
 man/
 O.*/
+
+# These files are generated during the compilation process from a template
+/support/RELEASE.local
+/extensions/RELEASE.local

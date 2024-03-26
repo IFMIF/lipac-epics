@@ -1,0 +1,7 @@
+record(mbbi, "$(DV):C$(C)S$(S)mbbi") {
+  field(DTYP, "$(DV)")
+  field(INP, "#C$(C) S$(S) @")
+  field(NOBT, "$(NB)")
+  field(SCAN, "$(SC)")
+  field(EVNT, "$(EV)")
+}

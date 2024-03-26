@@ -1,7 +1,7 @@
 # Makefile to compile all the EPICS support modules
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Date: 2023-11-15
+# Last update: 2024-03-26
 
 # ---------------------------------------------------------
 # EPICS base
@@ -42,6 +42,11 @@ SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas s7plc seq ssc
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
-	$(MAKE) -C $@ $(MAKECMDGOALS)
+	@echo "\033[31;1m"
+	@echo "--------------------------------------------------------------------------------"
+	@echo "Building support/$@"
+	@echo "--------------------------------------------------------------------------------"
+	@echo "\033[0m"
+	$(MAKE) -C $@ $(MAKECMDGOALS) INSTALL_LOCATION=$(EPICS_TARGET)/support/$@
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
