@@ -36,7 +36,7 @@
 	url = https://github.com/paulscherrerinstitute/s7plc.git
 [submodule "support/seq"]
 	path = support/seq
-	url = https://github.com/mdavidsaver/sequencer-mirror
+	url = https://github.com/epics-modules/sequencer.git
 [submodule "support/motor"]
 	path = support/motor
 	url = https://github.com/epics-modules/motor.git
