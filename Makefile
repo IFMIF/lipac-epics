@@ -40,6 +40,15 @@ prepare:
 	@mkdir -p $(EPICS_TARGET)/extensions/
 	@cp RELEASE.local $(EPICS_TARGET)/extensions/
 
+	@rm RELEASE.local
+
+	# Prepare CONFIG_SITE.local
+	@cp CONFIG_SITE.local support/
+	@cp CONFIG_SITE.local extensions/
+	@cp CONFIG_SITE.local $(EPICS_TARGET)
+	@cp CONFIG_SITE.local $(EPICS_TARGET)/support
+	@cp CONFIG_SITE.local $(EPICS_TARGET)/extensions
+
 	# SEQ depends on itself
 	# We need to copy its 'configure' folder to the target folder beforehand, or it doesn't compile
 	@mkdir -p $(EPICS_TARGET)/support/seq/configure
