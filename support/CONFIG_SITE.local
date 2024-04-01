@@ -1,0 +1,6 @@
+# Transport-independent RPC
+TIRPC=YES
+
+# Static build
+STATIC_BUILD=YES
+ENABLE_STATIC=YES

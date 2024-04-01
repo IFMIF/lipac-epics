@@ -1,9 +1,8 @@
-# Transport-independent RPC
-TIRPC=YES
-
 # Use the system-provided PCRE library
-PCRE=
-PCRE_INCLUDE=/usr/include
+PCRE=$(SUPPORT)/pcre
+#undefine PCRE
+#PCRE_LIB=/usr/lib/x86_64-linux-gnu
+#PCRE_INCLUDE=/usr/include
 
 # ASYN is needed to compile asyn device support
 ASYN=$(SUPPORT)/asyn
@@ -50,3 +49,12 @@ SSCAN=$(SUPPORT)/sscan
 
 # PCAS
 PCAS=$(SUPPORT)/pcas
+
+# Other modules
+ADAS=$(SUPPORT)/adas
+LUA=$(SUPPORT)/lua
+MOTOR=$(SUPPORT)/motor
+S7PLC=$(SUPPORT)/s7plc
+STREAM=$(SUPPORT)/StreamDevice
+SYMB=$(SUPPORT)/symb
+VXSTATS=$(SUPPORT)/vxStats
