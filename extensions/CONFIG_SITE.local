@@ -1,3 +1,6 @@
-# Use the system-provided PCRE library
-USE_PCRE = YES
-SYS_PCRE = YES
+# Transport-independent RPC
+TIRPC=YES
+
+# Static build
+STATIC_BUILD=YES
+ENABLE_STATIC=YES

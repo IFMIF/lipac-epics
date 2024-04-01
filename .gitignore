@@ -11,5 +11,4 @@ man/
 O.*/
 
 # These files are generated during the compilation process from a template
-/support/RELEASE.local
-/extensions/RELEASE.local
+**/RELEASE.local
