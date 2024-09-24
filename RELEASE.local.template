@@ -58,3 +58,6 @@ S7PLC=$(SUPPORT)/s7plc
 STREAM=$(SUPPORT)/StreamDevice
 SYMB=$(SUPPORT)/symb
 VXSTATS=$(SUPPORT)/vxStats
+
+# Additional device support
+AGILENT_E364XA=$(DEVICES)/agilent_e364xa

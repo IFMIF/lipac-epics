@@ -24,29 +24,39 @@ endef
 prepare:
 	$(call red-text,"Preparing the build environment")
 
+	# Create the target directories
+	@mkdir -p $(EPICS_TARGET)
+	@mkdir -p $(EPICS_TARGET)/support/
+	@mkdir -p $(EPICS_TARGET)/devices/
+	@mkdir -p $(EPICS_TARGET)/extensions/
+
 	# Prepare RELEASE.local
 	@rm -f RELEASE.local
 	@echo "EPICS_BASE=$(EPICS_TARGET)/base" >> RELEASE.local
 	@echo "SUPPORT=$(EPICS_TARGET)/support" >> RELEASE.local
+	@echo "DEVICES=$(EPICS_TARGET)/devices" >> RELEASE.local
 	@echo ""                              >> RELEASE.local
 	@cat RELEASE.local.template           >> RELEASE.local
 
 	@cp RELEASE.local support/
+	@cp RELEASE.local devices/
 	@cp RELEASE.local extensions/
 
-	@mkdir -p $(EPICS_TARGET)/support/
+	@cp RELEASE.local $(EPICS_TARGET)
 	@cp RELEASE.local $(EPICS_TARGET)/support/
-
-	@mkdir -p $(EPICS_TARGET)/extensions/
+	@cp RELEASE.local $(EPICS_TARGET)/devices/
 	@cp RELEASE.local $(EPICS_TARGET)/extensions/
 
 	@rm RELEASE.local
 
 	# Prepare CONFIG_SITE.local
 	@cp CONFIG_SITE.local support/
+	@cp CONFIG_SITE.local devices/
 	@cp CONFIG_SITE.local extensions/
+
 	@cp CONFIG_SITE.local $(EPICS_TARGET)
 	@cp CONFIG_SITE.local $(EPICS_TARGET)/support
+	@cp CONFIG_SITE.local $(EPICS_TARGET)/devices
 	@cp CONFIG_SITE.local $(EPICS_TARGET)/extensions
 
 	# SEQ depends on itself
@@ -64,6 +74,10 @@ build: prepare
 	$(call red-text,"Building support")
 	$(MAKE) -C support all EPICS_TARGET=$(EPICS_TARGET)
 
+	# devices
+	$(call red-text,"Building additional device support")
+	$(MAKE) -C devices all EPICS_TARGET=$(EPICS_TARGET)
+
 	# extensions
 	$(call red-text,"Building extensions")
 	$(MAKE) -C extensions all EPICS_TARGET=$(EPICS_TARGET)
@@ -75,6 +89,9 @@ clean:
 
 	$(call red-text,"Cleaning support")
 	$(MAKE) -C support distclean EPICS_TARGET=$(EPICS_TARGET)
+
+	$(call red-text,"Cleaning devices")
+	$(MAKE) -C devices distclean EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning target")
 	$(MAKE) -C base distclean INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
