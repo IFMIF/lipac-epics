@@ -11,7 +11,12 @@ After cloning, you should have the following folder structure:
     ./
     ├-- base       -> EPICS 7.0 itself
     ├-- support    -> EPICS support modules
+    ├-- devices    -> Additional device support modules
     └-- extensions -> EPICS extensions
+
+To update the submodules after the initial clone:
+
+    git submodule update --init --recursive
 
 ## Compilation instructions
 
@@ -42,6 +47,10 @@ To clean the project completely, please run:
     make clean EPICS_TARGET=${target_dir}
 
 Please note that this command will also delete the target directory, so please back it up first if you want to keep it!
+
+## Using the compiled distribution to develop your IOCs
+
+WRITE THIS
 
 ## Obsolete modules
 
