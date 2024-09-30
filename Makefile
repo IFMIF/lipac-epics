@@ -68,33 +68,33 @@ prepare:
 build: prepare
 	# base
 	$(call red-text,"Building base")
-	$(MAKE) -C base all INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) all -C base INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
 
 	# support
 	$(call red-text,"Building support")
-	$(MAKE) -C support all EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) all -C support EPICS_TARGET=$(EPICS_TARGET)
 
 	# devices
 	$(call red-text,"Building additional device support")
-	$(MAKE) -C devices all EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) all -C devices all EPICS_TARGET=$(EPICS_TARGET)
 
 	# extensions
 	$(call red-text,"Building extensions")
-	$(MAKE) -C extensions all EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) all -C extensions EPICS_TARGET=$(EPICS_TARGET)
 
 # Clean in reverse order
 clean:
 	$(call red-text,"Cleaning extensions")
-	$(MAKE) -C extensions distclean EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning support")
-	$(MAKE) -C support distclean EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) distclean -C support EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning devices")
-	$(MAKE) -C devices distclean EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning target")
-	$(MAKE) -C base distclean INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
+	$(MAKE) distclean -C base INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Removing target")
 	@rm -rf $(EPICS_TARGET)
