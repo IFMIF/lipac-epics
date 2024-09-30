@@ -1,36 +1,15 @@
-# Makefile to compile all the EPICS support modules
+# -------------------------------------------------------------------------------------------------
+# Device support modules
+# This modules are fully independent of each other, they only depend on 'base' and 'support'
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
 # Last update: 2024-03-26
-
-# ---------------------------------------------------------
-# EPICS base
-# Empty target, we just include it here so that other targets can reference it
-# ---------------------------------------------------------
-
-base:
-
-# ---------------------------------------------------------
-# Subdirs to build
-# We need to specify the dependencies so that Make can resolve the build order
-# The dependencies are manually extracted from */configure/RELEASE
-# ---------------------------------------------------------
-
-#symb: base
-agilent_e364xa: base
-#SNCSEQ = $(SUPPORT)/seq-2.2.8
-#STREAM = $(SUPPORT)/StreamDevice-2.8.16
-#ASYN =  $(SUPPORT)/asyn-4.44.2
-#CALC=$(SUPPORT)/calc-3.7.4
-
-# ---------------------------------------------------------
-# Build instructions
-# ---------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
 
 TOPTARGETS := all distclean
 
-SUBDIRS := agilent_e364xa
-
+SUBDIRS := agilent_e364xa graphtec_GL820
+ 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
 	@echo "\033[31;1m"
