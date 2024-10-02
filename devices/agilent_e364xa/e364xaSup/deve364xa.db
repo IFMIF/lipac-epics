@@ -1,123 +1,246 @@
 record(bo,"$(P)$(R)Init") {
     field(DESC, "Initalize communications")
     field(DTYP, "e364xa")
-    field(OUT,  "#L$(L) A$(A) @0")
+    field(OUT, "#L$(L) A$(A) @0")
     field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(stringin,"$(P)$(R)IDN") {
     field(DESC, "Identification string")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @1")
+    field(INP, "#L$(L) A$(A) @1")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(longin,"$(P)$(R)STB") {
     field(DESC, "Status byte")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @2")
+    field(INP, "#L$(L) A$(A) @2")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(longin,"$(P)$(R)ESR") {
     field(DESC, "Event register")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @3")
+    field(INP, "#L$(L) A$(A) @3")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(bi,"$(P)$(R)OPC") {
     field(DESC, "Output complete?")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @4")
+    field(INP, "#L$(L) A$(A) @4")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(bo,"$(P)$(R)Enable") {
     field(DESC, "Turn supply off/on")
     field(DTYP, "e364xa")
-    field(OUT,  "#L$(L) A$(A) @8")
+    field(OUT, "#L$(L) A$(A) @8")
     field(FLNK, "$(P)$(R)Update")
+    field(SIMM, "$(SIMM)")
 }
 record(bi,"$(P)$(R)Enabled") {
     field(DESC, "Is supply on?")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @9")
-    field(SCAN, "10 second")
+    field(INP, "#L$(L) A$(A) @9")
+    field(SCAN, "1 second")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 
 record(bo,"$(P)$(R)SetRange") {
     field(DESC, "Set output range")
     field(DTYP, "e364xa")
-    field(OUT,  "#L$(L) A$(A) @10")
+    field(OUT, "#L$(L) A$(A) @10")
     field(FLNK, "$(P)$(R)GetRange")
+    field(SIMM, "$(SIMM)")
 }
 record(stringin,"$(P)$(R)GetRange") {
     field(DESC, "Get output range")
     field(DTYP, "e364xa")
-    field(INP,  "#L$(L) A$(A) @11")
+    field(INP, "#L$(L) A$(A) @11")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(ao,"$(P)$(R)SetVoltage") {
     field(DESC, "Set voltage")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
-    field(OUT,  "#L$(L) A$(A) @12")
+    field(OUT, "#L$(L) A$(A) @12")
     field(PREC, "3")
-    field(EGU,  "Volts")
-    field(LOPR,  "0")
-    field(HOPR,  "65")
+    field(EGU, "V")
+    field(LOPR, "0")
+    field(HOPR, "65")
     field(FLNK, "$(P)$(R)Update")
+    field(SIMM, "$(SIMM)")
 }
 record(seq,"$(P)$(R)Update") {
     field(DESC, "Force measurements")
-    field(LNK1, "$(P)$(R)GetVoltage.PROC")
-    field(LNK2, "$(P)$(R)Voltage.PROC")
-    field(LNK3, "$(P)$(R)GetCurrent.PROC")
+    field(LNK0, "$(P)$(R)GetVoltage.PROC")
+    field(LNK1, "$(P)$(R)Voltage.PROC")
+    field(LNK2, "$(P)$(R)GetCurrent.PROC")
     field(LNK4, "$(P)$(R)Current.PROC")
     field(LNK5, "$(P)$(R)Enabled.PROC")
+    field(PINI, "YES")
 }
 record(ai,"$(P)$(R)GetVoltage") {
     field(DESC, "Voltage setpoint")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
     field(PREC, "3")
-    field(EGU,  "Volts")
-    field(LOPR,  "0")
-    field(HOPR,  "65")
-    field(INP,  "#L$(L) A$(A) @13")
+    field(EGU, "V")
+    field(LOPR, "0")
+    field(HOPR, "65")
+    field(INP, "#L$(L) A$(A) @13")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(ai,"$(P)$(R)Voltage") {
     field(DESC, "Voltage measurement")
-    field(SCAN, "10 second")
+    field(SCAN, "1 second")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
     field(PREC, "3")
-    field(EGU,  "Volts")
-    field(LOPR,  "0")
-    field(HOPR,  "65")
-    field(INP,  "#L$(L) A$(A) @14")
+    field(EGU, "V")
+    field(LOPR, "0")
+    field(HOPR, "65")
+    field(INP, "#L$(L) A$(A) @14")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 
 record(ao,"$(P)$(R)SetCurrent") {
     field(DESC, "Set current")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
-    field(OUT,  "#L$(L) A$(A) @20")
-    field(EGU,  "Amps")
+    field(OUT, "#L$(L) A$(A) @20")
+    field(EGU, "A")
     field(PREC, "3")
-    field(LOPR,  "0")
-    field(HOPR,  "10")
+    field(LOPR, "0")
+    field(HOPR, "10")
     field(FLNK, "$(P)$(R)GetCurrent")
+    field(SIMM, "$(SIMM)")
 }
 record(ai,"$(P)$(R)GetCurrent") {
     field(DESC, "Current setpoint")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
     field(PREC, "3")
-    field(EGU,  "Amps")
-    field(LOPR,  "0")
-    field(HOPR,  "10")
-    field(INP,  "#L$(L) A$(A) @21")
+    field(EGU, "A")
+    field(LOPR, "0")
+    field(HOPR, "10")
+    field(INP, "#L$(L) A$(A) @21")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
 }
 record(ai,"$(P)$(R)Current") {
     field(DESC, "Current measurement")
-    field(SCAN, "10 second")
+    field(SCAN, "1 second")
     field(DTYP, "e364xa")
     field(LINR, "NO CONVERSION")
     field(PREC, "3")
-    field(EGU,  "Amps")
-    field(LOPR,  "0")
-    field(HOPR,  "10")
-    field(INP,  "#L$(L) A$(A) @22")
+    field(EGU, "A")
+    field(LOPR, "0")
+    field(HOPR, "10")
+    field(INP, "#L$(L) A$(A) @22")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
+}
+
+## new records added in 2024 when upgrading the module to operate a E3648A model
+record(stringin, "$(P)$(R)ERR") {
+    field(DESC, "Last error message, FIFO")
+    field(DTYP, "e364xa")
+    field(INP, "#L$(L) A$(A) @23")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
+}
+record(bo,"$(P)$(R)SelectOutput") {
+    field(DESC, "Select Intrument Output")
+    field(DTYP, "e364xa")
+    field(OUT, "#L$(L) A$(A) @24")
+    field(FLNK, "$(P)$(R)Update") ## update the 
+    field(SIMM, "$(SIMM)")
+}
+record(stringin,"$(P)$(R)GetOutput") {
+    field(DESC, "Reads selected instrument output")
+    field(SCAN, "1 second")
+    field(DTYP, "e364xa")
+    field(INP, "#L$(L) A$(A) @25")
+    field(PINI, "YES")
+    field(SIMM, "$(SIMM)")
+}
+record(ao,"$(P)$(R)SetVoltage1") {
+    field(DESC, "Set voltage of Output 1")
+    field(DTYP, "Soft Channel")
+    field(PREC, "3")
+    field(EGU, "V")
+    field(LOPR, "0")
+    field(HOPR, "65")
+    field(FLNK, "$(P)$(R)SeqSetVoltage1")
+    field(SIMM, "$(SIMM)")
+}
+record(seq, "$(P)$(R)SeqSetVoltage1") {
+    field(DESC, "Sequence used for SetVoltage1")
+    field(DO1, "0") # i.e. output 1
+    field(LNK1, "$(P)$(R)SelectOutput PP") # the output needs to be selected before applying the value
+    field(DOL2, "$(P)$(R)SetVoltage1 PP")
+    field(LNK2, "$(P)$(R)SetVoltage PP")
+}
+record(ao,"$(P)$(R)SetVoltage2") {
+    field(DESC, "Set voltage of Output 2")
+    field(DTYP, "Soft Channel")
+    field(PREC, "3")
+    field(EGU, "V")
+    field(LOPR, "0")
+    field(HOPR, "65")
+    field(FLNK, "$(P)$(R)SeqSetVoltage2")
+    field(SIMM, "$(SIMM)")
+}
+record(seq, "$(P)$(R)SeqSetVoltage2") {
+    field(DESC, "Sequence used for SetVoltage2")
+    field(SELM, "All")
+    field(DO0, "1")
+    field(LNK0, "$(P)$(R)SelectOutput PP")
+    field(DLY1, "1.0")
+    field(DLY2, "1.0")
+    field(DOL1, "$(P)$(R)SetVoltage2 PP")
+    field(LNK1, "$(P)$(R)SetVoltage PP")
+}
+record(ao,"$(P)$(R)SetCurrent1") {
+    field(DESC, "Set current of Output 1")
+    field(DTYP, "Soft Channel")
+    field(LINR, "NO CONVERSION")
+    field(EGU, "A")
+    field(PREC, "3")
+    field(LOPR, "0")
+    field(HOPR, "10")
+    field(OUT, "$(P)$(R)SeqSetCurrent1")
+    field(SIMM, "$(SIMM)")
+}
+record(seq, "$(P)$(R)SeqSetCurrent1") {
+    field(DESC, "Sequence used for SetCurrent1")
+    field(DO0, "0")
+    field(LNK0, "$(P)$(R)SelectOutput PP")
+    field(DOL1, "$(P)$(R)SetCurrent1 PP")
+    field(LNK1, "$(P)$(R)SetCurrent PP")
+}
+record(ao,"$(P)$(R)SetCurrent2") {
+    field(DESC, "Set current of Output 2")
+    field(DTYP, "Soft Channel")
+    field(LINR, "NO CONVERSION")
+    field(EGU, "A")
+    field(PREC, "3")
+    field(LOPR, "0")
+    field(HOPR, "10")
+    field(FLNK, "$(P)$(R)SeqSetCurrent2")
+    field(SIMM, "$(SIMM)")
+}
+record(seq, "$(P)$(R)SeqSetCurrent2") {
+    field(DESC, "Sequence used for SetCurrent2")
+    field(DO0, "1")
+    field(LNK0, "$(P)$(R)SelectOutput PP")
+    field(DOL1, "$(P)$(R)SetCurrent2 PP")
+    field(LNK1, "$(P)$(R)SetCurrent PP")
 }
