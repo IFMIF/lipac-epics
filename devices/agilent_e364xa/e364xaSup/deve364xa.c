@@ -66,6 +66,9 @@ static struct devGpibNames initNames = { 2,initNamesList,0,1 };
 static char  *voltageRangeNamesList[] = { "Low","High" };
 static struct devGpibNames voltageRangeNames = { 2,voltageRangeNamesList,0,1 };
 
+static char  *instrumentOutputsNamesList[] = { "OUTP1","OUTP2" };
+static struct devGpibNames instrumentOutputsNames = { 2,instrumentOutputsNamesList,0,1 };
+
 /******************************************************************************
  * Structures used by the init routines to fill in the onst,twst,... and the
  * onvl,twvl,... fields in MBBI and MBBO record types.
@@ -90,6 +93,8 @@ static struct devGpibNames voltageRangeNames = { 2,voltageRangeNamesList,0,1 };
  ******************************************************************************/
 
 static char *voltageRange[] = {"LOW","HIGH",0};
+
+static char *instrumentOutputs[] = {"OUTP1","OUTP2",0};
 
 /******************************************************************************
  * Array of structures that define all GPIB messages
@@ -131,7 +136,15 @@ static struct gpibCmd gpibCmds[] = {
     {&DSET_AI,GPIBREAD,IB_Q_HIGH,"CURR?","%lf",0,80,0,0,0,NULL,NULL,0},
     /* Param 22 - Measure current */
     {&DSET_AI,GPIBREAD,IB_Q_HIGH,"MEAS:CURR?","%lf",0,80,0,0,0,NULL,NULL,0},
-    FILL, FILL, FILL, FILL, FILL, FILL, FILL,
+
+    /* Param 23 - Read string from the FIFO error list */
+    {&DSET_SI,GPIBREAD,IB_Q_HIGH,"SYST:ERR?","%39[^\r\n]",0,80,0,0,0,NULL,NULL,0},
+    
+    /* Param 24 - Select instrument output INSTrument[:SELect] {OUTPut1|OUTPut2|OUT1|OUT2} */
+    {&DSET_BO,GPIBEFASTO,IB_Q_HIGH,"INST:SEL ",NULL,0,80,0,0,0,instrumentOutputs,&instrumentOutputsNames,0},
+    /* Param 25 - Read current instrument output INSTrument[:SELect]? */
+    {&DSET_SI,GPIBREAD,IB_Q_HIGH,"INST:SEL?","%39[^\n]",0,80,0,0,0,NULL,NULL,0},
+    FILL, FILL, FILL, FILL, 
 };
 
 /* The following is the number of elements in the command array above.  */
