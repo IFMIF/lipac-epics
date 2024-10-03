@@ -8,7 +8,7 @@
 
 TOPTARGETS := all distclean
 
-SUBDIRS := agilent_e364xa graphtec_GL820
+SUBDIRS := $(wildcard */.)
  
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

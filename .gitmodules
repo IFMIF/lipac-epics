@@ -49,3 +49,21 @@
 [submodule "support/pcas"]
 	path = support/pcas
 	url = https://github.com/epics-modules/pcas.git
+[submodule "devices/agilent_e364xa"]
+	path = devices/agilent_e364xa
+	url = https://code.ifmif.org/epics/devices/agilent_e364xa
+[submodule "devices/keysight_B2900"]
+	path = devices/keysight_B2900
+	url = https://code.ifmif.org/epics/devices/keysight_B2900
+[submodule "devices/caen_n1470"]
+	path = devices/caen_n1470
+	url = https://code.ifmif.org/epics/devices/caen_n1470
+[submodule "devices/srs_DG645"]
+	path = devices/srs_DG645
+	url = https://code.ifmif.org/epics/devices/srs_DG645
+[submodule "devices/caen_ad1725s"]
+	path = devices/caen_ad1725s
+	url = https://code.ifmif.org/epics/devices/caen_ad1725s
+[submodule "devices/graphtec_GL820"]
+	path = devices/graphtec_GL820
+	url = https://code.ifmif.org/epics/devices/graphtec_GL820
