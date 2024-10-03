@@ -1,11 +1,12 @@
-TOP=..
+TOP = ..
 include $(TOP)/configure/CONFIG
+
 #=======================================
 
 # Build deve364xa as a library for an IOC:
 LIBRARY_IOC += deve364xa
 
-# Library Source files
+# Library source files
 deve364xa_SRCS += deve364xa.c
 
 # Link with the asyn and base libraries
@@ -17,4 +18,5 @@ DBD += deve364xa.dbd
 DB += deve364xa.db
 
 #=======================================
+
 include $(TOP)/configure/RULES
