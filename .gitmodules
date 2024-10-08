@@ -67,3 +67,6 @@
 [submodule "devices/graphtec_GL820"]
 	path = devices/graphtec_GL820
 	url = https://code.ifmif.org/epics/devices/graphtec_GL820
+[submodule "support/std"]
+	path = support/std
+	url = https://github.com/epics-modules/std

@@ -74,9 +74,9 @@ build: prepare
 	$(call red-text,"Building support")
 	$(MAKE) all -C support EPICS_TARGET=$(EPICS_TARGET)
 
-	# devices
-	$(call red-text,"Building additional device support")
-	$(MAKE) all -C devices all EPICS_TARGET=$(EPICS_TARGET)
+#	# devices
+#	$(call red-text,"Building additional device support")
+#	$(MAKE) all -C devices all EPICS_TARGET=$(EPICS_TARGET)
 
 	# extensions
 	$(call red-text,"Building extensions")
