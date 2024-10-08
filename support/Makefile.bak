@@ -8,7 +8,7 @@
 # Empty target, we just include it here so that other targets can reference it
 # ---------------------------------------------------------
 
-#base:
+base:
 pcre:
 
 # ---------------------------------------------------------
@@ -17,22 +17,21 @@ pcre:
 # The dependencies are manually extracted from */configure/RELEASE
 # ---------------------------------------------------------
 
-adas:
-autosave:
-asyn: calc ipac seq sscan
-busy: asyn autosave
-calc: sscan seq
-ipac:
-lua: asyn
-modbus: asyn
-motor: asyn seq busy ipac modbus lua #MX
-pcas:
-s7plc: seq
-seq:
-sscan: seq
-std: asyn seq
-StreamDevice: asyn calc pcre
-symb:
+adas: base
+autosave: base
+asyn: base calc ipac seq sscan
+busy: base asyn autosave
+calc: base sscan seq
+ipac: base
+lua: base asyn
+modbus: base asyn
+motor: base asyn seq busy ipac modbus lua #MX
+pcas: base
+s7plc: base seq
+seq: base
+sscan: base seq
+StreamDevice: base asyn calc pcre
+symb: base
 
 # ---------------------------------------------------------
 # Build instructions
@@ -40,7 +39,7 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb
+SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan StreamDevice symb
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
