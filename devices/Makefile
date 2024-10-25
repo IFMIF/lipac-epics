@@ -11,11 +11,11 @@ TOPTARGETS := all distclean
 # Uncomment the correct device support.
 SUBDIRS := agilent_e364xa
 #SUBDIRS := caen_ad1725s
-SUBDIRS := caen_n1470
-SUBDIRS := graphtec_GL820
-SUBDIRS := keysight_B2900
-SUBDIRS := srs_DG645
- 
+SUBDIRS += caen_n1470
+SUBDIRS += graphtec_GL820
+SUBDIRS += keysight_B2900
+SUBDIRS += srs_DG645
+
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
 	@echo "\033[31;1m"

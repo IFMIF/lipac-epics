@@ -31,6 +31,7 @@ dnf -y install \
 	libtirpc-devel \
 	libusbx \
 	libusbx-devel \
+	libevent-devel \
 	perl-lib \
 	perl-File-Find \
 	perl-FindBin \

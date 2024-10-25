@@ -27,6 +27,7 @@ lua: asyn
 modbus: asyn
 motor: asyn seq busy ipac modbus lua #MX
 pcas:
+pvxs:
 s7plc: seq
 seq:
 sscan: seq
@@ -40,7 +41,7 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb
+SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
