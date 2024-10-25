@@ -59,6 +59,7 @@ STREAM=$(SUPPORT)/StreamDevice
 SYMB=$(SUPPORT)/symb
 VXSTATS=$(SUPPORT)/vxStats
 STD=$(SUPPORT)/std
+PVXS=$(SUPPORT)/pvxs
 
 # Additional device support
 AGILENT_E364XA=$(DEVICES)/agilent_e364xa

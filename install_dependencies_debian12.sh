@@ -24,6 +24,7 @@ apt -y install \
 	libpcre3-dev \
 	libusb-1.0-0 \
 	libusb-1.0-0-dev \
+	libevent-dev \
 	perl-modules
 
 # Additional required tools
