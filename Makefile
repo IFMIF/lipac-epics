@@ -84,14 +84,14 @@ build: prepare
 
 # Clean in reverse order
 clean:
-	$(call red-text,"Cleaning extensions")
-	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
+#	$(call red-text,"Cleaning extensions")
+#	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
+
+#	$(call red-text,"Cleaning devices")
+#	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning support")
 	$(MAKE) distclean -C support EPICS_TARGET=$(EPICS_TARGET)
-
-	$(call red-text,"Cleaning devices")
-	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning target")
 	$(MAKE) distclean -C base INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
