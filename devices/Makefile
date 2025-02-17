@@ -10,6 +10,7 @@ TOPTARGETS := all distclean
 
 # Uncomment the correct device support.
 SUBDIRS := agilent_e364xa
+SUBDIRS := adas
 #SUBDIRS := caen_ad1725s
 SUBDIRS += caen_n1470
 SUBDIRS += graphtec_GL820

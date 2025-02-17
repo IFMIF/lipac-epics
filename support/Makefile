@@ -17,7 +17,6 @@ pcre:
 # The dependencies are manually extracted from */configure/RELEASE
 # ---------------------------------------------------------
 
-adas:
 autosave:
 asyn: calc ipac seq sscan
 busy: asyn autosave
@@ -41,7 +40,7 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := adas autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
+SUBDIRS := autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
