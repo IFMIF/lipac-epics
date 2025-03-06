@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export EPICS_ROOT=/home/epicsmgr/epics-7.0
+export EPICS_ROOT=/opt/epics-7.0
 
 export EPICS_BASE=${EPICS_ROOT}/base
 export EPICS_HOST_ARCH=`${EPICS_BASE}/startup/EpicsHostArch`

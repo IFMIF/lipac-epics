@@ -4,6 +4,6 @@ TIRPC=YES
 # PCRE
 USE_PCRE=YES
 
-# Static build
-STATIC_BUILD=YES
+# Build static libraries, but not static binaries
 ENABLE_STATIC=YES
+STATIC_BUILD=NO

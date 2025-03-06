@@ -9,15 +9,15 @@ if [ "$EUID" -ne 0 ]; then
         exit
 fi
 
-# Basic compiler stuff
+# First, update the package cache
+apt update
+
+# Libraries and tools required to compile EPICS
 apt -y install \
 	gcc \
 	g++ \
 	git \
-	make
-
-# Libraries
-apt -y install \
+	make \
         libreadline-dev \
         libtirpc-dev \
         libpcre2-dev \
@@ -25,10 +25,7 @@ apt -y install \
 	libusb-1.0-0 \
 	libusb-1.0-0-dev \
 	libevent-dev \
-	perl-modules
-
-# Additional required tools
-apt -y install \
+	perl-modules \
         re2c \
 	rpcsvc-proto \
         doxygen

@@ -12,3 +12,6 @@ O.*/
 
 # These files are generated during the compilation process from a template
 **/RELEASE.local
+support/CONFIG_SITE.local
+devices/CONFIG_SITE.local
+extensions/CONFIG_SITE.local

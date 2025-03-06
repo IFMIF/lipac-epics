@@ -84,11 +84,11 @@ build: prepare
 
 # Clean in reverse order
 clean:
-#	$(call red-text,"Cleaning extensions")
-#	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
+	$(call red-text,"Cleaning extensions")
+	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
 
-#	$(call red-text,"Cleaning devices")
-#	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
+	$(call red-text,"Cleaning devices")
+	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
 
 	$(call red-text,"Cleaning support")
 	$(MAKE) distclean -C support EPICS_TARGET=$(EPICS_TARGET)
@@ -98,6 +98,6 @@ clean:
 
 	$(call red-text,"Removing target")
 	@rm -rf $(EPICS_TARGET)
-	@rm -f RELEASE.local support/RELEASE.local extensions/RELEASE.local
+	@rm -f RELEASE.local support/RELEASE.local extensions/RELEASE.local devices/RELEASE.local
 
 .PHONY: prepare build clean
