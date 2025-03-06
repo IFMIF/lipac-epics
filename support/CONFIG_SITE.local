@@ -1,9 +1,0 @@
-# Transport-independent RPC
-TIRPC=YES
-
-# PCRE
-USE_PCRE=YES
-
-# Static build
-STATIC_BUILD=YES
-ENABLE_STATIC=YES
