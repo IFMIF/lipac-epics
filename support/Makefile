@@ -21,6 +21,7 @@ autosave:
 asyn: calc ipac seq sscan
 busy: asyn autosave
 calc: sscan seq
+iocStats:
 ipac:
 lua: asyn
 modbus: asyn
@@ -40,7 +41,7 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := autosave asyn busy calc ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
+SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
