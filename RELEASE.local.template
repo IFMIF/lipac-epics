@@ -51,7 +51,6 @@ SSCAN=$(SUPPORT)/sscan
 PCAS=$(SUPPORT)/pcas
 
 # Other modules
-ADAS=$(SUPPORT)/adas
 LUA=$(SUPPORT)/lua
 MOTOR=$(SUPPORT)/motor
 S7PLC=$(SUPPORT)/s7plc
@@ -61,6 +60,11 @@ VXSTATS=$(SUPPORT)/vxStats
 STD=$(SUPPORT)/std
 PVXS=$(SUPPORT)/pvxs
 
-# Additional device support
+# Device support
+ADAS=$(DEVICES)/adas
 AGILENT_E364XA=$(DEVICES)/agilent_e364xa
+CAEN_AD1725S=$(DEVICES)/caen_ad1725s 
+CAEN_N1470=$(DEVICES)/caen_n1470 
 GRAPHTEC_GL820=$(DEVICES)/graphtec_GL820
+KEYSIGHT_B2900=$(DEVICES)/keysight_B2900 
+SRS_DG645=$(DEVICES)/srs_DG645 
