@@ -1,64 +1,30 @@
-# Use the system-provided PCRE library
+# Use our own PCRE library
 PCRE=$(SUPPORT)/pcre
 #undefine PCRE
 #PCRE_LIB=/usr/lib/x86_64-linux-gnu
 #PCRE_INCLUDE=/usr/include
 
-# ASYN is needed to compile asyn device support
+# EPICS support modules
 ASYN=$(SUPPORT)/asyn
-
-# AUTOSAVE is needed for the test application only
 AUTOSAVE=$(SUPPORT)/autosave
-
-# BUSY is this module
 BUSY=$(SUPPORT)/busy
-
-# Need the sequencer and the busy record for trajectory scanning
-# Recommended SNCSEQ release: R2.2.6
+CALC=$(SUPPORT)/calc
+IOCSTATS=$(SUPPORT)/iocStats
+IPAC=$(SUPPORT)/ipac
+LUA=$(SUPPORT)/lua
+MODBUS=$(SUPPORT)/modbus
+MOTOR=$(SUPPORT)/motor
+PCAS=$(SUPPORT)/pcas
+PVXS=$(SUPPORT)/pvxs
+S7PLC=$(SUPPORT)/s7plc
 SNCSEQ=$(SUPPORT)/seq
-
-# Recommended BUSY release: R1-7-1
-BUSY=$(SUPPORT)/busy
+SSCAN=$(SUPPORT)/sscan
+STD=$(SUPPORT)/std
+STREAM=$(SUPPORT)/StreamDevice
+SYMB=$(SUPPORT)/symb
 
 # The following must be defined for motorMXmotor
 #!MX=$(SUPPORT)/mx/mx
-
-# IPAC is required to build motorHytec
-# Recommended IPAC release: R2-15
-IPAC=$(SUPPORT)/ipac
-
-# Script module needed to build motorScriptMotor
-#!LUA=$(SUPPORT)/lua-R1-3
-
-# Modbus module needed to build motorAMCI's example IOC
-# Required MODBUS release: R2-11 or later
-MODBUS=$(SUPPORT)/modbus
-
-# The following is only needed for the motor examples in iocBoot.
-#!MOTOR=$(TOP)
-
-# Optional
-# For sCalcout support in asynOctet - applications include asynCalc.dbd
-# It can be obtained here: https://github.com/epics-modules/calc
-CALC=$(SUPPORT)/calc
-
-# Optional
-# If CALC was built with SSCAN support then SSCAN must be defined for testEpicsApp
-# It can be obtained here: https://github.com/epics-modules/sscan
-SSCAN=$(SUPPORT)/sscan
-
-# PCAS
-PCAS=$(SUPPORT)/pcas
-
-# Other modules
-LUA=$(SUPPORT)/lua
-MOTOR=$(SUPPORT)/motor
-S7PLC=$(SUPPORT)/s7plc
-STREAM=$(SUPPORT)/StreamDevice
-SYMB=$(SUPPORT)/symb
-VXSTATS=$(SUPPORT)/vxStats
-STD=$(SUPPORT)/std
-PVXS=$(SUPPORT)/pvxs
 
 # Device support
 ADAS=$(DEVICES)/adas

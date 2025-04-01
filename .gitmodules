@@ -73,3 +73,6 @@
 [submodule "support/pvxs"]
 	path = support/pvxs
 	url = https://github.com/epics-base/pvxs.git
+[submodule "support/iocStats"]
+	path = support/iocStats
+	url = https://github.com/epics-modules/iocStats
