@@ -1,4 +1,5 @@
-# Ignore compilation artifacts to avoid having them accidentally committed
+# EPICS files
+## Ignore compilation artifacts to avoid having them accidentally committed
 /bin/
 /db/
 /dbd/
@@ -10,8 +11,11 @@ html/
 man/
 O.*/
 
-# These files are generated during the compilation process from a template
+## These files are generated during the compilation process from a template
 **/RELEASE.local
 support/CONFIG_SITE.local
 devices/CONFIG_SITE.local
 extensions/CONFIG_SITE.local
+
+## Editor, OS and so
+.vscode/
