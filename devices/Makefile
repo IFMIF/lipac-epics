@@ -9,8 +9,8 @@
 TOPTARGETS := all distclean
 
 # Uncomment the correct device support.
-SUBDIRS := agilent_e364xa
 SUBDIRS := adas
+SUBDIRS := agilent_e364xa
 #SUBDIRS := caen_ad1725s
 SUBDIRS += caen_n1470
 SUBDIRS += graphtec_GL820
@@ -27,3 +27,5 @@ $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS) INSTALL_LOCATION=$(EPICS_TARGET)/devices/$@
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS)
+
+.NOTPARALLEL:

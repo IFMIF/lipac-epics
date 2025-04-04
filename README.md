@@ -40,13 +40,21 @@ To solve these problems, we have written our own Makefile, which provides two go
 
 To build the EPICS distribution, please run:
 
-    make build EPICS_TARGET=${target_dir}
+    make build EPICS_TARGET=${target_dir} -j${num_cores}
 
 To clean the project completely, please run:
 
     make clean EPICS_TARGET=${target_dir}
 
-Please note that this command will also delete the target directory, so please back it up first if you want to keep it!
+Please note that this command will also delete the target directory, so please back it up first if you want to keep Fit!
+
+## Updating and fixing submodules
+
+To update your submodules to the latest upstream version, please run:
+
+    git submodule update --init --recursive
+
+If you can't compile the project, you might have accidentally broken your submodules. In that case, the script `clean_submodules.sh` will delete and recreate them, to start from a clean slate.
 
 ## Using the compiled distribution to develop your IOCs
 

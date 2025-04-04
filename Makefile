@@ -2,16 +2,17 @@
 # Makefile to compile the whole LIPAc EPICS-7.0 distribution
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Last update: 2024-03-26
+# Last update: 2025-04-03
 # -------------------------------------------------------------------------------------------------
 
-red := $(shell tput setaf 1)
-reset := $(shell tput sgr0)
-
+# Default installing location
 EPICS_TARGET = $(CURDIR)/target
 
 # Auxiliary function to print a text enclosed in a red box
 # We want to make the compilation log a bit prettier and easier to read
+red := $(shell tput setaf 1)
+reset := $(shell tput sgr0)
+
 define red-text
 @echo "\033[31;1m"
 @echo "--------------------------------------------------------------------------------"
@@ -19,6 +20,13 @@ define red-text
 @echo "--------------------------------------------------------------------------------"
 @echo "\033[0m"
 endef
+
+# -------------------------------------------------------------------------------------------------
+
+# Run the build stages in the correct order
+all: prepare base support devices extensions
+
+#all: prepare base support extensions
 
 # EXPLAIN THIS
 prepare:
@@ -64,23 +72,27 @@ prepare:
 	@mkdir -p $(EPICS_TARGET)/support/seq/configure
 	@find support/seq/configure/ -maxdepth 1 -type f -exec cp -f -t $(EPICS_TARGET)/support/seq/configure {} +
 
-# Build base first, then support, then extensions
-build: prepare
-	# base
+# base
+base:
 	$(call red-text,"Building base")
 	$(MAKE) all -C base INSTALL_LOCATION=$(EPICS_TARGET)/base EPICS_TARGET=$(EPICS_TARGET)
 
-	# support
+# support
+support:
 	$(call red-text,"Building support")
 	$(MAKE) all -C support EPICS_TARGET=$(EPICS_TARGET)
 
-	# devices
+# devices
+devices:
 	$(call red-text,"Building additional device support")
 	$(MAKE) all -C devices all EPICS_TARGET=$(EPICS_TARGET)
 
-	# extensions
+# extensions
+extensions:
 	$(call red-text,"Building extensions")
 	$(MAKE) all -C extensions EPICS_TARGET=$(EPICS_TARGET)
+
+# -------------------------------------------------------------------------------------------------
 
 # Clean in reverse order
 clean:
@@ -98,6 +110,10 @@ clean:
 
 	$(call red-text,"Removing target")
 	@rm -rf $(EPICS_TARGET)
-	@rm -f RELEASE.local support/RELEASE.local extensions/RELEASE.local devices/RELEASE.local
+	@rm -f RELEASE.local support/RELEASE.local devices/RELEASE.local extensions/RELEASE.local
 
-.PHONY: prepare build clean
+# -------------------------------------------------------------------------------------------------
+
+.PHONY: all clean prepare base support devices extensions
+
+.NOTPARALLEL:
