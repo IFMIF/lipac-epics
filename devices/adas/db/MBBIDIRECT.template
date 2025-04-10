@@ -1,7 +1,0 @@
-record(mbbiDirect, "$(DV):C$(C)S$(S)mbbid") {
-  field(DTYP, "$(DV)")
-  field(INP, "#C$(C) S$(S) @")
-  field(NOBT, "$(NB)")
-  field(SCAN, "$(SC)")
-  field(EVNT, "$(EV)")
-}

@@ -40,33 +40,9 @@
 [submodule "support/motor"]
 	path = support/motor
 	url = https://github.com/epics-modules/motor.git
-[submodule "extensions/ca-gateway"]
-	path = extensions/ca-gateway
-	url = https://github.com/epics-extensions/ca-gateway.git
-[submodule "extensions/ca-nameserver"]
-	path = extensions/ca-nameserver
-	url = https://github.com/epics-extensions/ca-nameserver.git
 [submodule "support/pcas"]
 	path = support/pcas
 	url = https://github.com/epics-modules/pcas.git
-[submodule "devices/agilent_e364xa"]
-	path = devices/agilent_e364xa
-	url = https://github.com/IFMIF/agilent_e364xa.git
-[submodule "devices/keysight_B2900"]
-	path = devices/keysight_B2900
-	url = https://github.com/IFMIF/keysight_B2900.git
-[submodule "devices/caen_n1470"]
-	path = devices/caen_n1470
-	url = https://github.com/IFMIF/caen_n1470.git
-[submodule "devices/srs_DG645"]
-	path = devices/srs_DG645
-	url = https://github.com/IFMIF/srs_DG645.git
-[submodule "devices/caen_ad1725s"]
-	path = devices/caen_ad1725s
-	url = https://github.com/IFMIF/caen_ad1725s.git
-[submodule "devices/graphtec_GL820"]
-	path = devices/graphtec_GL820
-	url = https://github.com/IFMIF/graphtec_GL820.git
 [submodule "support/std"]
 	path = support/std
 	url = https://github.com/epics-modules/std
@@ -76,3 +52,9 @@
 [submodule "support/iocStats"]
 	path = support/iocStats
 	url = https://github.com/epics-modules/iocStats
+[submodule "extensions/ca-gateway"]
+	path = extensions/ca-gateway
+	url = https://github.com/epics-extensions/ca-gateway.git
+[submodule "extensions/ca-nameserver"]
+	path = extensions/ca-nameserver
+	url = https://github.com/epics-extensions/ca-nameserver.git

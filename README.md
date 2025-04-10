@@ -40,7 +40,7 @@ To solve these problems, we have written our own Makefile, which provides two go
 
 To build the EPICS distribution, please run:
 
-    make build EPICS_TARGET=${target_dir} -j${num_cores}
+    make EPICS_TARGET=${target_dir} -j${num_cores}
 
 To clean the project completely, please run:
 
