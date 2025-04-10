@@ -1,3 +1,4 @@
+# ---------------------------------------------------------------------------------------------------------------------
 # Location of the EPICS support modules.
 #
 # WARNING: if you add new entries here, be extremely careful that there are no white spaces at the end of each line,
@@ -6,9 +7,6 @@
 
 # Use our own PCRE library
 PCRE=$(SUPPORT)/pcre
-#undefine PCRE
-#PCRE_LIB=/usr/lib/x86_64-linux-gnu
-#PCRE_INCLUDE=/usr/include
 
 # EPICS support modules
 ASYN=$(SUPPORT)/asyn
@@ -31,12 +29,3 @@ SYMB=$(SUPPORT)/symb
 
 # The following must be defined for motorMXmotor
 #!MX=$(SUPPORT)/mx/mx
-
-# Device support
-ADAS=$(DEVICES)/adas
-AGILENT_E364XA=$(DEVICES)/agilent_e364xa
-CAEN_AD1725S=$(DEVICES)/caen_ad1725s
-CAEN_N1470=$(DEVICES)/caen_n1470
-GRAPHTEC_GL820=$(DEVICES)/graphtec_GL820
-KEYSIGHT_B2900=$(DEVICES)/keysight_B2900
-SRS_DG645=$(DEVICES)/srs_DG645

@@ -1,6 +1,0 @@
-record(bo, "$(DV):C$(C)S$(S)bo") {
-  field(DTYP, "$(DV)")
-  field(OUT, "#C$(C) S$(S) @")
-  field(ZNAM, "0")
-  field(ONAM, "1")
-}

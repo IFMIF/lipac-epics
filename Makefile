@@ -24,9 +24,7 @@ endef
 # -------------------------------------------------------------------------------------------------
 
 # Run the build stages in the correct order
-all: prepare base support devices extensions
-
-#all: prepare base support extensions
+all: prepare base support extensions
 
 # EXPLAIN THIS
 prepare:
@@ -35,36 +33,30 @@ prepare:
 	# Create the target directories
 	@mkdir -p $(EPICS_TARGET)
 	@mkdir -p $(EPICS_TARGET)/support/
-	@mkdir -p $(EPICS_TARGET)/devices/
 	@mkdir -p $(EPICS_TARGET)/extensions/
 
 	# Prepare RELEASE.local
 	@rm -f RELEASE.local
 	@echo "EPICS_BASE=$(EPICS_TARGET)/base" >> RELEASE.local
 	@echo "SUPPORT=$(EPICS_TARGET)/support" >> RELEASE.local
-	@echo "DEVICES=$(EPICS_TARGET)/devices" >> RELEASE.local
 	@echo ""                              >> RELEASE.local
 	@cat RELEASE.local.template           >> RELEASE.local
 
 	@cp RELEASE.local support/
-	@cp RELEASE.local devices/
 	@cp RELEASE.local extensions/
 
 	@cp RELEASE.local $(EPICS_TARGET)
 	@cp RELEASE.local $(EPICS_TARGET)/support/
-	@cp RELEASE.local $(EPICS_TARGET)/devices/
 	@cp RELEASE.local $(EPICS_TARGET)/extensions/
 
 	@rm RELEASE.local
 
 	# Prepare CONFIG_SITE.local
 	@cp CONFIG_SITE.local support/
-	@cp CONFIG_SITE.local devices/
 	@cp CONFIG_SITE.local extensions/
 
 	@cp CONFIG_SITE.local $(EPICS_TARGET)
 	@cp CONFIG_SITE.local $(EPICS_TARGET)/support
-	@cp CONFIG_SITE.local $(EPICS_TARGET)/devices
 	@cp CONFIG_SITE.local $(EPICS_TARGET)/extensions
 
 	# SEQ depends on itself
@@ -82,11 +74,6 @@ support:
 	$(call red-text,"Building support")
 	$(MAKE) all -C support EPICS_TARGET=$(EPICS_TARGET)
 
-# devices
-devices:
-	$(call red-text,"Building additional device support")
-	$(MAKE) all -C devices all EPICS_TARGET=$(EPICS_TARGET)
-
 # extensions
 extensions:
 	$(call red-text,"Building extensions")
@@ -99,9 +86,6 @@ clean:
 	$(call red-text,"Cleaning extensions")
 	$(MAKE) distclean -C extensions EPICS_TARGET=$(EPICS_TARGET)
 
-	$(call red-text,"Cleaning devices")
-	$(MAKE) distclean -C devices EPICS_TARGET=$(EPICS_TARGET)
-
 	$(call red-text,"Cleaning support")
 	$(MAKE) distclean -C support EPICS_TARGET=$(EPICS_TARGET)
 
@@ -110,10 +94,10 @@ clean:
 
 	$(call red-text,"Removing target")
 	@rm -rf $(EPICS_TARGET)
-	@rm -f RELEASE.local support/RELEASE.local devices/RELEASE.local extensions/RELEASE.local
+	@find -name 'RELEASE.local' -delete
 
 # -------------------------------------------------------------------------------------------------
 
-.PHONY: all clean prepare base support devices extensions
+.PHONY: all clean prepare base support extensions
 
 .NOTPARALLEL:
