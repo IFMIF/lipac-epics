@@ -4,7 +4,7 @@
 
 This repository is intended to be the official EPICS 7.0 distribution used in the LIPAc project. It currently includes the EPICS base repository, and a collection of support modules and extensions. The dependencies are included as submodules, so when cloning it please make sure to do a recursive clone:
 
-    git clone --recursive https://code.ifmif.org/lipac/epics-7.0
+    git clone --recursive https://github.com/IFMIF/lipac-epics-7.0
 
 After cloning, you should have the following folder structure:
 
