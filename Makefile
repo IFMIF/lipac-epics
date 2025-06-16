@@ -52,7 +52,7 @@ prepare:
 	@rm RELEASE.local
 
 	# Prepare CONFIG_SITE.local
-	@cp CONFIG_SITE.local base/configure/
+#	@cp CONFIG_SITE.local base/configure/
 	@cp CONFIG_SITE.local support/
 	@cp CONFIG_SITE.local extensions/
 

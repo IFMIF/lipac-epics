@@ -9,7 +9,6 @@
 # ---------------------------------------------------------
 
 #base:
-pcre:
 
 # ---------------------------------------------------------
 # Subdirs to build
@@ -32,7 +31,7 @@ s7plc: seq
 seq:
 sscan: seq
 std: asyn seq
-StreamDevice: asyn calc pcre
+StreamDevice: asyn calc
 symb:
 
 # ---------------------------------------------------------
@@ -41,7 +40,7 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor pcas pcre s7plc seq sscan std StreamDevice symb pvxs
+SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor pcas s7plc seq sscan std StreamDevice symb pvxs
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
