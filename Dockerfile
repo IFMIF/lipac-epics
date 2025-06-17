@@ -17,11 +17,7 @@ RUN ./update_submodules.sh
 
 # Compile EPICS.
 RUN mkdir -p /opt/epics-7.0
-RUN make EPICS_TARGET=/opt/epics-7.0
-#RUN make prepare EPICS_TARGET=/opt/epics-7.0
-#RUN make base EPICS_TARGET=/opt/epics-7.0
-#RUN make support EPICS_TARGET=/opt/epics-7.0
-#RUN make extensions EPICS_TARGET=/opt/epics-7.0
+RUN make EPICS_TARGET=/opt/epics-7.0 -j8
 
 # Delete the static libraries to reduce the final size.
 # We will only use dynamic linking.
