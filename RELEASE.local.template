@@ -5,11 +5,6 @@
 # otherwise compilation will fail spectacularly.
 # ---------------------------------------------------------------------------------------------------------------------
 
-# Use the system-provided PCRE library
-undefine PCRE
-PCRE_LIB=/usr/lib/x86_64-linux-gnu
-PCRE_INCLUDE=/usr/include/
-
 # EPICS support modules
 ASYN=$(SUPPORT)/asyn
 AUTOSAVE=$(SUPPORT)/autosave
