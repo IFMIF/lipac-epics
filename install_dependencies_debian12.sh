@@ -28,4 +28,7 @@ apt -y install \
 	perl-modules \
         re2c \
 	rpcsvc-proto \
-        doxygen
+        doxygen \
+	xz-utils \
+	libxml2-dev \
+	libssl-dev

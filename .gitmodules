@@ -58,3 +58,6 @@
 [submodule "extensions/ca-nameserver"]
 	path = extensions/ca-nameserver
 	url = https://github.com/epics-extensions/ca-nameserver.git
+[submodule "support/opcua"]
+	path = support/opcua
+	url = https://github.com/epics-modules/opcua.git
