@@ -7,7 +7,10 @@ name: Docker
 
 on:
   schedule:
-    - cron: '19 22 * * *'
+    # Run the job at 20:19 UTC:
+    #  21~22 in Europe, late enough for everybody to have finished their work day.
+    #     05 in Japan, nobody has started working yet.
+    - cron: '19 20 * * *'
   push:
     branches: [ "master" ]
     # Publish semver tags as releases.

@@ -1,14 +1,9 @@
+# ---------------------------------------------------------
 # Makefile to compile all the EPICS support modules
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Last update: 2024-03-26
-
+# Last update: 2025-06-25
 # ---------------------------------------------------------
-# EPICS base
-# Empty target, we just include it here so that other targets can reference it
-# ---------------------------------------------------------
-
-#base:
 
 # ---------------------------------------------------------
 # Subdirs to build
@@ -33,7 +28,6 @@ seq:
 sscan: seq
 std: asyn seq
 StreamDevice: asyn calc
-symb:
 
 # ---------------------------------------------------------
 # Build instructions
@@ -42,8 +36,7 @@ symb:
 TOPTARGETS := all distclean
 
 #SUBDIRS := $(wildcard */.)
-SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor opcua pcas s7plc seq sscan std StreamDevice symb pvxs
-#SUBDIRS := opcua
+SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor opcua pcas pvxs s7plc seq sscan std StreamDevice
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

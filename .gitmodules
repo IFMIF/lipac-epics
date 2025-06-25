@@ -25,9 +25,6 @@
 [submodule "support/sscan"]
 	path = support/sscan
 	url = https://github.com/epics-modules/sscan.git
-[submodule "support/symb"]
-	path = support/symb
-	url = https://github.com/epics-modules/symb.git
 [submodule "support/StreamDevice"]
 	path = support/StreamDevice
 	url = https://github.com/paulscherrerinstitute/StreamDevice.git
