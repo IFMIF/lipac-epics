@@ -37,10 +37,11 @@ prepare:
 
 	# Prepare RELEASE.local
 	@rm -f RELEASE.local
-	@echo "EPICS_BASE=$(EPICS_TARGET)/base" >> RELEASE.local
-	@echo "SUPPORT=$(EPICS_TARGET)/support" >> RELEASE.local
-	@echo ""                              >> RELEASE.local
-	@cat RELEASE.local.template           >> RELEASE.local
+	@echo "EPICS_BASE=$(EPICS_TARGET)/base"    >> RELEASE.local
+	@echo "SUPPORT=$(EPICS_TARGET)/support"    >> RELEASE.local
+#	@echo "OPEN62541=$(CURDIR)/deps" >> RELEASE.local
+	@echo ""                                >> RELEASE.local
+	@cat RELEASE.local.template             >> RELEASE.local
 
 	@cp RELEASE.local support/
 	@cp RELEASE.local extensions/

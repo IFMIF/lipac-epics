@@ -25,6 +25,7 @@ ipac:
 lua: asyn
 modbus: asyn
 motor: asyn seq busy ipac modbus lua #MX
+opcua: pcas
 pcas:
 pvxs:
 s7plc: seq
@@ -40,7 +41,9 @@ symb:
 
 TOPTARGETS := all distclean
 
-SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor pcas s7plc seq sscan std StreamDevice symb pvxs
+#SUBDIRS := $(wildcard */.)
+SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor opcua pcas s7plc seq sscan std StreamDevice symb pvxs
+#SUBDIRS := opcua
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

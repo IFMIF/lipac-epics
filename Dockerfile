@@ -11,6 +11,10 @@ FROM ghcr.io/ifmif/lipac-debian AS build
 WORKDIR /work
 COPY ./ .
 
+# Unpack the external dependencies
+RUN mkdir -p /opt/
+RUN tar -xJf ./deps/open62541-v1.3.15.tar.xz -C /opt/
+
 # Git submodules are a bit tricky and sometimes become desynchronized.
 # To prevent issues, we forcefully clone/update the submodules.
 RUN ./update_submodules.sh
@@ -29,4 +33,4 @@ RUN find -name '*.a' -delete
 # -----------------------------------------------------------------------------
 
 FROM ghcr.io/ifmif/lipac-debian
-COPY --from=build /opt/epics-7.0/ /opt/epics-7.0/
+COPY --from=build /opt/ /opt/

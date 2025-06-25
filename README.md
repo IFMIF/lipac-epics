@@ -27,6 +27,8 @@ Before the code can be compiled, it is necessary to install all the required dep
 - For AlmaLinux 9 please run [`install_dependencies_al9.sh`](install_dependencies_al9.sh)
 - For Debian 12 please run [`install_dependencies_debian12.sh`](install_dependencies_debian12.sh)
 
+To compile the OPC-UA support you need [open62541](https://www.open62541.org/). A prebuilt package is provided in the `deps` folder, just unpack it under `/opt`.
+
 The EPICS build process is quite complicated:
 
 - EPICS base itself is easy to build, but the support modules and the extensions require providing a hardcoded file with the location of 'base' and the other support modules. Futhermore, there is no dependency resolution for the support modules.

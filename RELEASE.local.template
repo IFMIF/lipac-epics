@@ -20,6 +20,7 @@ IPAC=$(SUPPORT)/ipac
 LUA=$(SUPPORT)/lua
 MODBUS=$(SUPPORT)/modbus
 MOTOR=$(SUPPORT)/motor
+OPCUA=$(SUPPORT)/opcua
 PCAS=$(SUPPORT)/pcas
 PVXS=$(SUPPORT)/pvxs
 S7PLC=$(SUPPORT)/s7plc
