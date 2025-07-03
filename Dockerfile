@@ -1,11 +1,39 @@
 # -----------------------------------------------------------------------------
+# Debian 12 plus all the packages required to compile EPICS
+# -----------------------------------------------------------------------------
+
+# We use Debian 12 for now
+# TODO: upgrade to Trixie (Debian 13) as soon as it becomes available
+FROM bitnami/minideb:bookworm AS base
+
+RUN apt update && apt upgrade && apt install -y \
+	gcc \
+	g++ \
+	git \
+	make \
+	libreadline-dev \
+	libtirpc-dev \
+	libpcre2-dev \
+	libpcre3-dev \
+	libusb-1.0-0 \
+	libusb-1.0-0-dev \
+	libevent-dev \
+	perl-modules \
+	re2c \
+	rpcsvc-proto \
+	doxygen \
+	xz-utils \
+	libxml2-dev \
+	libssl-dev
+
+# -----------------------------------------------------------------------------
 # EPICS 7.0 distribution for LIPAc
 #
 # This is a multi-stage build.
 # First, compile everything to a temporary workspace.
 # -----------------------------------------------------------------------------
 
-FROM ghcr.io/ifmif/lipac-debian AS build
+FROM base AS build
 
 # Prepare the working environment.
 WORKDIR /work
@@ -32,5 +60,5 @@ RUN find -name '*.a' -delete
 # Final step, create the clean image.
 # -----------------------------------------------------------------------------
 
-FROM ghcr.io/ifmif/lipac-debian
+FROM base
 COPY --from=build /opt/ /opt/
