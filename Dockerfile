@@ -1,10 +1,10 @@
 # -----------------------------------------------------------------------------
-# Debian 12 plus all the packages required to compile EPICS
+# Debian 13 (Trixie) plus all the packages required to compile EPICS
 # -----------------------------------------------------------------------------
 
-# We use Debian 12 for now
+# We use Debian 13 for now
 # TODO: upgrade to Trixie (Debian 13) as soon as it becomes available
-FROM bitnami/minideb:bookworm AS base
+FROM debian:trixie AS base
 
 RUN apt update && apt upgrade && apt install -y \
 	gcc \
@@ -13,12 +13,10 @@ RUN apt update && apt upgrade && apt install -y \
 	make \
 	libreadline-dev \
 	libtirpc-dev \
-	libpcre2-dev \
-	libpcre3-dev \
 	libusb-1.0-0 \
 	libusb-1.0-0-dev \
 	libevent-dev \
-	perl-modules \
+	perl-modules-5.40 \
 	re2c \
 	rpcsvc-proto \
 	doxygen \

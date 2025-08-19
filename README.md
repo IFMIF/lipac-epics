@@ -20,12 +20,12 @@ To update the submodules after the initial clone:
 
 ## Compilation instructions
 
-Forewarning: These instructions have been tested under AlmaLinux 9 and Debian 12 and confirmed to work. They will probably work under other Linux distributions, but we can't confirm it. They won't probably work under CentOS 7, as it is very old and missing some required dependencies.
+Forewarning: These instructions have been tested under AlmaLinux 9 and Debian 13 and confirmed to work. They will probably work under other Linux distributions, but we can't confirm it. They won't probably work under CentOS 7, as it is very old and missing some required dependencies.
 
 Before the code can be compiled, it is necessary to install all the required dependencies. The specific name of the packages depend on the Linux distro being used:
 
 - For AlmaLinux 9 please run [`install_dependencies_al9.sh`](install_dependencies_al9.sh)
-- For Debian 12 please run [`install_dependencies_debian12.sh`](install_dependencies_debian12.sh)
+- For Debian 13 please run [`install_dependencies_debian13.sh`](install_dependencies_debian13.sh)
 
 To compile the OPC-UA support you need [open62541](https://www.open62541.org/). A prebuilt package is provided in the `deps` folder, just unpack it under `/opt`.
 

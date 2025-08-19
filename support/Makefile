@@ -2,7 +2,7 @@
 # Makefile to compile all the EPICS support modules
 #
 # Author: José Franco Campos <franco.jose@qst.go.jp>
-# Last update: 2025-06-25
+# Last update: 2025-08-19
 # ---------------------------------------------------------
 
 # ---------------------------------------------------------
@@ -35,8 +35,7 @@ StreamDevice: asyn calc
 
 TOPTARGETS := all distclean
 
-#SUBDIRS := $(wildcard */.)
-SUBDIRS := autosave asyn busy calc iocStats ipac lua modbus motor opcua pcas pvxs s7plc seq sscan std StreamDevice
+SUBDIRS := $(patsubst %/,%,$(wildcard */))
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

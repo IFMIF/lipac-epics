@@ -20,12 +20,10 @@ apt -y install \
 	make \
         libreadline-dev \
         libtirpc-dev \
-        libpcre2-dev \
-	libpcre3-dev \
 	libusb-1.0-0 \
 	libusb-1.0-0-dev \
 	libevent-dev \
-	perl-modules \
+	perl-modules-5.40 \
         re2c \
 	rpcsvc-proto \
         doxygen \
