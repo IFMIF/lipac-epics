@@ -10,6 +10,7 @@ envPaths
 html/
 man/
 O.*/
+.iocsh_history
 
 ## These files are generated during the compilation process from a template
 **/RELEASE.local

@@ -1,0 +1,15 @@
+[Unit]
+Description=Das LIPAc über IOC
+After=network.target
+
+[Service]
+Type=simple
+User=epics
+Group=epics
+WorkingDirectory=/opt/epics-7.0/extensions/lipac-uber-ioc/boot/
+ExecStart=/usr/bin/procServ --foreground --logfile - --port 20000 ./st.cmd
+Restart=always
+SyslogIdentifier=%N
+
+[Install]
+WantedBy=multi-user.target
