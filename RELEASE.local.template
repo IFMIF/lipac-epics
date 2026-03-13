@@ -24,6 +24,7 @@ SSCAN=$(SUPPORT)/sscan
 STD=$(SUPPORT)/std
 STREAM=$(SUPPORT)/StreamDevice
 SYMB=$(SUPPORT)/symb
+AREA_DETECTOR=$(SUPPORT)/areaDetector
 
 # The following must be defined for motorMXmotor
 #!MX=$(SUPPORT)/mx/mx
