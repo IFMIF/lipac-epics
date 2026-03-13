@@ -66,6 +66,30 @@ prepare:
 	@mkdir -p $(EPICS_TARGET)/support/seq/configure
 	@find support/seq/configure/ -maxdepth 1 -type f -exec cp -f -t $(EPICS_TARGET)/support/seq/configure {} +
 
+	# Patches for areaDetector, it also needs the config files
+	# Copy CONFIG_SITE
+	@mkdir -p $(EPICS_TARGET)/support/areaDetector/configure
+	@cp -r support/areaDetector/configure/CONFIG_SITE* $(EPICS_TARGET)/support/areaDetector/configure
+	# Specific config files for areaDetector
+	@cp configs/AD_CONFIG_SITE support/areaDetector/configure/CONFIG_SITE.local
+	@cp configs/AD_RELEASE support/areaDetector/configure/RELEASE.local
+	@cp configs/AD_RELEASE_LIBS support/areaDetector/configure/RELEASE_LIBS.local
+	@cp configs/AD_RELEASE_PRODS support/areaDetector/configure/RELEASE_PRODS.local
+	@sed -i '1s|^|EPICS_BASE=$(EPICS_TARGET)\/base\nSUPPORT=$(EPICS_TARGET)\/support\n|' support/areaDetector/configure/RELEASE_LIBS.local
+	@sed -i '1s|^|EPICS_BASE=$(EPICS_TARGET)\/base\nSUPPORT=$(EPICS_TARGET)\/support\n|' support/areaDetector/configure/RELEASE_PRODS.local
+	# Copy ADApp common driver / library (needed for some IOCs)
+	@cp support/areaDetector/ADCore/ADApp/commonDriverMakefile $(EPICS_TARGET)/support/areaDetector
+	@cp support/areaDetector/ADCore/ADApp/commonLibraryMakefile $(EPICS_TARGET)/support/areaDetector
+
+	# Copy EPICS tools for the IOC compilation (it depends on these tools)
+	#@mkdir -p $(EPICS_TARGET)/base/src
+	#@cp -r base/src/tools $(EPICS_TARGET)/base/src
+
+	# EpicsHostArch for the setEpicsEnvironment.sh
+	@mkdir -p $(EPICS_TARGET)/base/startup
+	@cp -r base/startup/EpicsHostArch $(EPICS_TARGET)/base/startup/
+
+
 # base
 base:
 	$(call red-text,"Building base")

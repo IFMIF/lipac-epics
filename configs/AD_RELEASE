@@ -1,0 +1,47 @@
+### Uncomment the lines for the detectors that should be built on all architectures.
+### Note that the detector Makefiles prevent building on completely unsupported architectures
+### such a ADPerkinElmer on Linux, etc. so those detectors can be uncommented in this file.
+### However, a local installation may want to further restrict what architectures a detector
+### is built for.  In that case comment out the driver in this file and add it to
+### RELEASE.local.$(EPICS_HOST_ARCH).
+###
+
+ADCORE=$(TOP)/ADCore
+#ADANDOR=$(TOP)/ADAndor
+#ADANDOR3=$(TOP)/ADAndor3
+#ADARAVIS=$(TOP)/ADAravis
+#ADCOMPVISION=$(TOP)/ADCompVision
+#ADCSIMDETECTOR=$(TOP)/ADCSimDetector
+#ADDEXELA=$(TOP)/ADDexela
+#ADEIGER=$(TOP)/ADEiger
+#ADFASTCCD=$(TOP)/ADFastCCD
+#ADGENICAM=$(TOP)/ADGenICam
+#ADLAMBDA=$(TOP)/ADLambda
+#ADLIGHTFIELD=$(TOP)/ADLightField
+#ADMERLIN=$(TOP)/ADMerlin
+#ADMMPAD=$(TOP)/ADMMPAD
+#ADMYTHEN=$(TOP)/ADMythen
+#ADPCOWIN=$(TOP)/ADPcoWin
+#ADPICAM=$(TOP)/ADPICam
+#ADPERKINELMER=$(TOP)/ADPerkinElmer
+#ADPILATUS=$(TOP)/ADPilatus
+#ADPLUGINBAR=$(TOP)/ADPluginBar
+#ADPLUGINEDGE=$(TOP)/ADPluginEdge
+#ADPVCAM=$(TOP)/ADPvCam
+#ADSIMDETECTOR=$(TOP)/ADSimDetector
+#ADSPINNAKER=$(TOP)/ADSpinnaker
+ADSUPPORT=$(TOP)/ADSupport
+#ADSUPPORT=$(TOP)/ADSupport
+#ADTIMEPIX3=$(TOP)/ADTIMEPIX3
+#ADTLBC2=$(TOP)/ADTLBC2
+#ADURL=$(TOP)/ADURL
+#ADVIMBA=$(TOP)/ADVimba
+#ADMAR345=$(TOP)/ADmar345
+#ADMARCCD=$(TOP)/ADmarCCD
+#FFMPEGSERVER=$(TOP)/ffmpegServer
+#FFMPEGVIEWER=$(TOP)/ffmpegViewer
+#NDDRIVERSTDARRAYS=$(TOP)/NDDriverStdArrays
+#PVADRIVER=$(TOP)/pvaDriver
+#SPECSANALYSER=$(TOP)/specsAnalyser
+#ADRIXSCAM=$(TOP)/ADRIXSCam
+-include $(TOP)/configure/RELEASE.local.$(EPICS_HOST_ARCH)

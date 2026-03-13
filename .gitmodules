@@ -55,3 +55,6 @@
 [submodule "support/opcua"]
 	path = support/opcua
 	url = https://github.com/epics-modules/opcua.git
+[submodule "support/areaDetector"]
+	path = support/areaDetector
+	url = https://github.com/areaDetector/areaDetector.git

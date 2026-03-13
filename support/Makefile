@@ -28,6 +28,7 @@ seq:
 sscan: seq
 std: asyn seq
 StreamDevice: asyn calc
+areaDetector: busy asyn autosave calc seq sscan pvxs
 
 # ---------------------------------------------------------
 # Build instructions
