@@ -5,6 +5,7 @@ before_script:
   - podman login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
 
 build_image:
+  stage: build
   script:
   - podman build --tag "$CI_REGISTRY_IMAGE:latest" .
   - podman push "$CI_REGISTRY_IMAGE:latest"
