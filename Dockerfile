@@ -1,45 +1,20 @@
 # -----------------------------------------------------------------------------
-# Debian 13 (Trixie) plus all the packages required to compile EPICS
-# -----------------------------------------------------------------------------
-
-# We use Debian 13 for now
-# TODO: upgrade to Trixie (Debian 13) as soon as it becomes available
-FROM debian:trixie AS base
-
-RUN apt update && apt upgrade && apt install -y \
-	gcc \
-	g++ \
-	git \
-	make \
-	libreadline-dev \
-	libtirpc-dev \
-	libusb-1.0-0 \
-	libusb-1.0-0-dev \
-	libevent-dev \
-	perl-modules-5.40 \
-	re2c \
-	rpcsvc-proto \
-	doxygen \
-	xz-utils \
-	libxml2-dev \
-	libssl-dev
-
-# -----------------------------------------------------------------------------
 # EPICS 7.0 distribution for LIPAc
 #
 # This is a multi-stage build.
 # First, compile everything to a temporary workspace.
 # -----------------------------------------------------------------------------
 
-FROM base AS build
+FROM registry.ifmif.org/tools/lipac-builder AS build
 
 # Prepare the working environment.
+COPY . /work
 WORKDIR /work
-COPY ./ .
 
 # Unpack the external dependencies
 RUN mkdir -p /opt/
 RUN tar -xJf ./deps/open62541-v1.3.15.tar.xz -C /opt/
+RUN ln -s /usr/include/libxml2/libxml /usr/include/
 
 # Git submodules are a bit tricky and sometimes become desynchronized.
 # To prevent issues, we forcefully clone/update the submodules.
@@ -49,14 +24,9 @@ RUN ./update_submodules.sh
 RUN mkdir -p /opt/epics-7.0
 RUN make EPICS_TARGET=/opt/epics-7.0 -j8
 
-# Delete the static libraries to reduce the final size.
-# We will only use dynamic linking.
-WORKDIR /opt/epics-7.0/
-RUN find -name '*.a' -delete
-
 # -----------------------------------------------------------------------------
 # Final step, create the clean image.
 # -----------------------------------------------------------------------------
 
-FROM base
+FROM registry.ifmif.org/tools/lipac-builder
 COPY --from=build /opt/ /opt/

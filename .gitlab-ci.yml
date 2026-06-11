@@ -1,11 +1,21 @@
+variables:
+  OUTPUT_PACKAGE: "$CI_PROJECT_NAME-linux-x86_64.tar.xz"
+  UPLOAD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/linux-x86_64/nightly/${OUTPUT_PACKAGE}"
+
 stages:
   - build
 
 before_script:
-  - podman login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - podman login -u gitlab-ci-token -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
 
-build_image:
+build:
   stage: build
   script:
-  - podman build --tag "$CI_REGISTRY_IMAGE:latest" .
+  - echo "Output package will be ${OUTPUT_PACKAGE}"
+  - echo "Package will be uploaded to ${UPLOAD_URL}"
+  - mkdir -p /build-results/
+  - podman build --tag "$CI_REGISTRY_IMAGE:latest" --volume /build-results:/opt .
   - podman push "$CI_REGISTRY_IMAGE:latest"
+  - tar -C /build-results/ -cJf "${OUTPUT_PACKAGE}" .
+  - |
+    curl --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "${OUTPUT_PACKAGE}" "${UPLOAD_URL}"

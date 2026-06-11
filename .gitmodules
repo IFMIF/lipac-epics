@@ -1,60 +1,100 @@
 [submodule "base"]
 	path = base
 	url = https://github.com/epics-base/epics-base.git
+	branch = 7.0
+	update = merge
 [submodule "support/asyn"]
 	path = support/asyn
 	url = https://github.com/epics-modules/asyn.git
+	branch = master
+	update = merge
 [submodule "support/autosave"]
 	path = support/autosave
 	url = https://github.com/epics-modules/autosave.git
+	branch = master
+	update = merge
 [submodule "support/busy"]
 	path = support/busy
 	url = https://github.com/epics-modules/busy.git
+	branch = master
+	update = merge
 [submodule "support/calc"]
 	path = support/calc
 	url = https://github.com/epics-modules/calc.git
+	branch = master
+	update = merge
 [submodule "support/ipac"]
 	path = support/ipac
 	url = https://github.com/epics-modules/ipac.git
+	branch = master
+	update = merge
 [submodule "support/lua"]
 	path = support/lua
 	url = https://github.com/epics-modules/lua.git
+	branch = master
+	update = merge
 [submodule "support/modbus"]
 	path = support/modbus
 	url = https://github.com/epics-modules/modbus.git
+	branch = master
+	update = merge
 [submodule "support/sscan"]
 	path = support/sscan
 	url = https://github.com/epics-modules/sscan.git
+	branch = master
+	update = merge
 [submodule "support/StreamDevice"]
 	path = support/StreamDevice
 	url = https://github.com/paulscherrerinstitute/StreamDevice.git
+	branch = master
+	update = merge
 [submodule "support/s7plc"]
 	path = support/s7plc
 	url = https://github.com/paulscherrerinstitute/s7plc.git
+	branch = master
+	update = merge
 [submodule "support/seq"]
 	path = support/seq
 	url = https://github.com/epics-modules/sequencer.git
+	branch = main
+	update = merge
 [submodule "support/motor"]
 	path = support/motor
 	url = https://github.com/epics-modules/motor.git
+	branch = master
+	update = merge
 [submodule "support/pcas"]
 	path = support/pcas
 	url = https://github.com/epics-modules/pcas.git
+	branch = master
+	update = merge
 [submodule "support/std"]
 	path = support/std
 	url = https://github.com/epics-modules/std
+	branch = master
+	update = merge
 [submodule "support/pvxs"]
 	path = support/pvxs
 	url = https://github.com/epics-base/pvxs.git
+	branch = master
+	update = merge
 [submodule "support/iocStats"]
 	path = support/iocStats
 	url = https://github.com/epics-modules/iocStats
-[submodule "extensions/ca-gateway"]
-	path = extensions/ca-gateway
-	url = https://github.com/epics-extensions/ca-gateway.git
+	branch = master
+	update = merge
 [submodule "support/opcua"]
 	path = support/opcua
 	url = https://github.com/epics-modules/opcua.git
+	branch = master
+	update = merge
 [submodule "support/areaDetector"]
 	path = support/areaDetector
 	url = https://github.com/areaDetector/areaDetector.git
+	branch = master
+	update = merge
+[submodule "extensions/ca-gateway"]
+	path = extensions/ca-gateway
+	url = https://github.com/epics-extensions/ca-gateway.git
+	branch = master
+	update = merge

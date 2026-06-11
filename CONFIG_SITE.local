@@ -1,14 +1,16 @@
-# Transport-independent RPC
+# Transport-independent RPC, for support/asyn and support/StreamDevice
 TIRPC=YES
 
-# Use the system-provided PCRE library
+# Disable PCRE for support/StreamDevice until it is updated for libpcre2
 undefine PCRE
-USE_PCRE=NO
 #PCRE_LIB=/usr/lib/x86_64-linux-gnu
 #PCRE_INCLUDE=/usr/include/
 #PCRE=$(SUPPORT)/pcre
 
-# Path to the Open62541 C++ installation
+# Enable PCRE for extensions/ca-gateway
+USE_PCRE2=YES
+
+# Path to the Open62541 C++ installation, for support/opcua
 OPEN62541=/opt/open62541
 OPEN62541_DEPLOY_MODE = PROVIDED
 OPEN62541_LIB_DIR = $(OPEN62541)/lib
