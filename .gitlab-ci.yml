@@ -1,6 +1,7 @@
 variables:
-  OUTPUT_PACKAGE: "$CI_PROJECT_NAME-linux-x86_64.tar.xz"
-  UPLOAD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/linux-x86_64/nightly/${OUTPUT_PACKAGE}"
+  OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
+  # PUT /projects/:id/packages/generic/:package_name/:package_version/:file_name
+  UPLOAD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/lipac-epics/nightly/${OUTPUT_PACKAGE}"
 
 stages:
   - build
