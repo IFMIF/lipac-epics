@@ -1,6 +1,6 @@
 variables:
-  OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
   # PUT /projects/:id/packages/generic/:package_name/:package_version/:file_name
+  OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
   UPLOAD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/lipac-epics/nightly/${OUTPUT_PACKAGE}"
 
 stages:
@@ -11,15 +11,27 @@ before_script:
 
 build:
   stage: build
+  image: registry.ifmif.org/tools/lipac-builder:latest
   tags:
     - linux
     - docker
   script:
+    # Build and push the OCI image
     - echo "Output package will be ${OUTPUT_PACKAGE}"
     - echo "Package will be uploaded to ${UPLOAD_URL}"
-    - mkdir -p /build-results/
-    - podman build --tag "$CI_REGISTRY_IMAGE:latest" --volume /build-results:/opt .
+    - podman build --tag "$CI_REGISTRY_IMAGE:latest" .
     - podman push "$CI_REGISTRY_IMAGE:latest"
+    # Extract the build artifacts and build a tar.xz package
+    - mkdir -p /build-results/
+    - podman create --name tmp-epics "$CI_REGISTRY_IMAGE:latest"
+    - podman cp tmp-epics:/opt /build-results
+    - podman rm tmp-epics
+    - date +'%Y.%m.%d' > /build-results/BUILD_DATE
     - tar -C /build-results/ -cJf "${OUTPUT_PACKAGE}" .
+    # Upload the package to Gitlab's registry and to the mirror server
+    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+    - cp "$MIRROR_SSH_KEY" ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/*
     - |
       curl --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "${OUTPUT_PACKAGE}" "${UPLOAD_URL}"
+    - rsync -va *.xz mirroring@dmz-mirror.ifmif.local:/var/www/mirror/
