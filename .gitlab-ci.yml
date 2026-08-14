@@ -1,7 +1,7 @@
 variables:
   # PUT /projects/:id/packages/generic/:package_name/:package_version/:file_name
   OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
-  UPLOAD_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/lipac-epics/nightly/${OUTPUT_PACKAGE}"
+  UPLOAD_URL: "https://mirror.ifmif.org/"
 
 stages:
   - build
@@ -28,10 +28,6 @@ build:
     - podman rm tmp-epics
     - date +'%Y.%m.%d' > /build-results/BUILD_DATE
     - tar -C /build-results/ -cJf "${OUTPUT_PACKAGE}" .
-    # Upload the package to Gitlab's registry and to the mirror server
-    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
-    - cp "$MIRROR_SSH_KEY" ~/.ssh/id_ed25519
-    - chmod 600 ~/.ssh/*
+    # Upload the package to the mirror server
     - |
-      curl --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "${OUTPUT_PACKAGE}" "${UPLOAD_URL}"
-    - rsync -va *.xz mirroring@dmz-mirror.ifmif.local:/var/www/mirror/
+      curl --location --upload-file "${OUTPUT_PACKAGE}" "${UPLOAD_URL}"
