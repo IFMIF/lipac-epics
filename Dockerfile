@@ -1,11 +1,39 @@
 # -----------------------------------------------------------------------------
-# EPICS 7.0 distribution for LIPAc
-#
-# This is a multi-stage build.
-# First, compile everything to a temporary workspace.
+# Debian 13 (Trixie) plus all the packages required to compile EPICS
 # -----------------------------------------------------------------------------
 
-FROM registry.ifmif.org/tools/lipac-builder AS build
+FROM debian:trixie AS base
+
+ARG DEBIAN_FRONTEND="noninteractive"
+
+RUN apt update && apt upgrade -y && apt install -y \
+	gcc \
+	g++ \
+	git \
+	make \
+	libreadline-dev \
+	libtirpc-dev \
+	libusb-1.0-0 \
+	libusb-1.0-0-dev \
+	libevent-dev \
+	perl-modules-5.40 \
+	re2c \
+	rpcsvc-proto \
+	doxygen \
+	xz-utils \
+	libxml2-dev \
+	libssl-dev \
+	libexpat1-dev \
+	zlib1g-dev \
+	libpcre2-dev \
+	pkg-config
+
+# -----------------------------------------------------------------------------
+# EPICS 7.0 distribution for LIPAc
+# Compile everything to a temporary workspace.
+# -----------------------------------------------------------------------------
+
+FROM base AS build
 
 # Prepare the working environment.
 COPY . /work
@@ -28,5 +56,5 @@ RUN make EPICS_TARGET=/opt/epics-7.0 -j8
 # Final step, create the clean image.
 # -----------------------------------------------------------------------------
 
-FROM registry.ifmif.org/tools/lipac-builder
+FROM base
 COPY --from=build /opt/ /opt/

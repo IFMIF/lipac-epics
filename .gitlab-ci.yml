@@ -1,5 +1,4 @@
 variables:
-  # PUT /projects/:id/packages/generic/:package_name/:package_version/:file_name
   OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
   UPLOAD_URL: "https://mirror.ifmif.org/"
 
@@ -11,7 +10,6 @@ before_script:
 
 build:
   stage: build
-  image: registry.ifmif.org/tools/lipac-builder:latest
   tags:
     - linux
     - docker
