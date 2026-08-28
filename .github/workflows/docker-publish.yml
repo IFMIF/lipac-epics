@@ -1,16 +1,9 @@
-name: Nightly snapshot
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Weekly snapshot
 
 on:
   schedule:
-    # Run the job at 20:19 UTC:
-    #  21~22 in Europe, late enough for everybody to have finished their work day.
-    #     05 in Japan, nobody has started working yet.
-    - cron: '19 20 * * *'
+    # Run the job every Saturday evening:
+    - cron: '13 13 * * SAT'
   push:
     branches: [ "master" ]
     # Publish semver tags as releases.
