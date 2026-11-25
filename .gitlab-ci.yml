@@ -1,5 +1,4 @@
 variables:
-  OUTPUT_PACKAGE: "${CI_PROJECT_NAME}-linux-x86_64.tar.xz"
   UPLOAD_URL: "https://mirror.ifmif.org/"
 
 stages:
@@ -14,18 +13,4 @@ build:
     - linux
     - docker
   script:
-    # Build and push the OCI image
-    - echo "Output package will be ${OUTPUT_PACKAGE}"
-    - echo "Package will be uploaded to ${UPLOAD_URL}"
-    - podman build --tag "$CI_REGISTRY_IMAGE:latest" .
-    - podman push "$CI_REGISTRY_IMAGE:latest"
-    # Extract the build artifacts and build a tar.xz package
-    - mkdir -p /build-results/
-    - podman create --name tmp-epics "$CI_REGISTRY_IMAGE:latest"
-    - podman cp tmp-epics:/opt /build-results
-    - podman rm tmp-epics
-    - date +'%Y.%m.%d' > /build-results/BUILD_DATE
-    - tar -C /build-results/ -cJf "${OUTPUT_PACKAGE}" .
-    # Upload the package to the mirror server
-    - |
-      curl --location --upload-file "${OUTPUT_PACKAGE}" "${UPLOAD_URL}"
+    - ./build_linux.sh
